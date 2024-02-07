@@ -7,6 +7,7 @@ public class AtencionMedica {
     private final String horaIngreso;
     private final String fechaIngreso;
 
+    private Double[] constante;
     private String fechaAlta;
     private String horaAlta;
     private String motivoAlta;
