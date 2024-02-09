@@ -89,6 +89,11 @@ public class AtencionMedica {
         return motivoAlta;
     }
 
+    public void altaPaciente(Date fechaAlta, String motivoAlta){
+        this.fechaAlta = fechaAlta;
+        this.motivoAlta = motivoAlta;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

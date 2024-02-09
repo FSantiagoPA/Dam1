@@ -1,4 +1,5 @@
-package comsantiagocon.Lib;
+/*
+package consantiagocom.SegundoTrimestre.Tema07Poo.Lib;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -12,14 +13,16 @@ import java.util.regex.Pattern;
 public class Utils {
 
     public static Scanner lector = new Scanner(System.in);
-    private static final String vowels = "ÁÀÂÄÉÈËÊÍÌÏÎÓÒÔÖÚÙÜÛ";
+    private static final String vowels = "";
     private static final String normalv = "AEIOU";
 
-    /**
+    */
+/**
      * Deploys an error on System.err and prints n args, then breaks the program
      *
      * @param args Strings to be printed
-     */
+     *//*
+
     public static void deployError(String... args) {
         for (String s : args)
             System.err.println(s);
@@ -27,7 +30,8 @@ public class Utils {
         System.exit(1);
     }
 
-    /**
+    */
+/**
      * Receives a string and prints the number of vowels and consonants
      * <p>
      * Example:
@@ -41,7 +45,8 @@ public class Utils {
      * </blockquote>
      *
      * @param s String to be analized
-     */
+     *//*
+
     public static void count(String s) {
         // Variable definition
         s = s.toUpperCase();
@@ -59,7 +64,8 @@ public class Utils {
         System.out.println(" y " + (s.replaceAll("\\s+", "").length() - counter) + " consonantes");
     }
 
-    /**
+    */
+/**
      * Counts the number of words in a string
      * <p>
      * Example:
@@ -74,7 +80,8 @@ public class Utils {
      *
      * @param s String with the words to be counted
      * @return Integer with the number of words
-     */
+     *//*
+
     public static int countWords(String s) {
         // Example using arrays
         // String[] words = s.trim(). split("\\s+");
@@ -95,7 +102,8 @@ public class Utils {
         return count;
     }
 
-    /**
+    */
+/**
      * Returns an array of Strings with the separated words of a phrase
      * <p>
      * Example:
@@ -110,12 +118,14 @@ public class Utils {
      *
      * @param phrase String with the phrase
      * @return String array with the words
-     */
+     *//*
+
     public static String[] separateWords(String phrase) {
         return phrase.trim().split("\\s+");
     }
 
-    /**
+    */
+/**
      * Returns the longest String in an array
      * <p>
      * Example:
@@ -130,7 +140,8 @@ public class Utils {
      *
      * @param args Undefinied number of Strings or an array
      * @return String with the longest word
-     */
+     *//*
+
     public static String getMaxLength(String... args) {
 
         int maxValue = 0;
@@ -147,7 +158,8 @@ public class Utils {
         return args[indexMax];
     }
 
-    /**
+    */
+/**
      * Multiplies a String by n times
      * <p>
      * Example:
@@ -163,7 +175,8 @@ public class Utils {
      * @param s     String to be multiplied
      * @param times N times that s will be multiplied
      * @return String with the multiplied String
-     */
+     *//*
+
     public static String multiplyString(String s, int times) {
         StringBuilder sb = new StringBuilder();
 
@@ -173,12 +186,14 @@ public class Utils {
         return sb.toString();
     }
 
-    /**
+    */
+/**
      * Removes whitespaces and scape characters of a string
      *
      * @param text String to be cleaned
      * @return The clean String
-     */
+     *//*
+
     public static String cleanString(String text) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < text.length(); i++) {
@@ -192,13 +207,15 @@ public class Utils {
         return text.trim().replaceAll("\\s+", " ");
     }
 
-    /**
+    */
+/**
      * Checks wether a String is palindrome or not (Ignores whitespaces and scape
      * characters)
      *
      * @param text String with the text to be analized
      * @return Boolean with the response
-     */
+     *//*
+
     public static boolean isPalindrome(String text) {
         text = cleanString(text).replaceAll("\\s+", "");
         int sep;
@@ -224,14 +241,16 @@ public class Utils {
         return sOriginal.equals(sReversed);
     }
 
-    /**
+    */
+/**
      * Gets q alphanumeric number of chars over a String and saves it into a char
      * Array
      *
      * @param s String with the alphanumeric characters
      * @param q Number of chars to be
      * @return char Array length q
-     */
+     *//*
+
     public static char[] charDivider(String s, int q) {
 
         if (q > s.length())
@@ -247,12 +266,14 @@ public class Utils {
         return cArray;
     }
 
-    /**
+    */
+/**
      * Reads and validates a double
      *
      * @param msj String to be printed
      * @return Validated double
-     */
+     *//*
+
     public static double leerDouble(String msj) {
         boolean valid;
         double d;
@@ -276,7 +297,8 @@ public class Utils {
         return d;
     }
 
-    /**
+    */
+/**
      * Receives two integer arrays and returns another array of integers with the
      * length
      * equal to the min length of the two given arrays with the result of adding
@@ -285,7 +307,8 @@ public class Utils {
      * @param a1 integer array one
      * @param a2 integer array two
      * @return integer array with the result of the additions
-     */
+     *//*
+
     public static int[] sumArray(int[] a1, int[] a2) {
         int len = a1.length > a2.length ? a2.length : a1.length;
         int[] res = new int[len];
@@ -297,7 +320,8 @@ public class Utils {
 
     }
 
-    /**
+    */
+/**
      * Receives two integer arrays and returns another array of integer with the
      * length
      * equal to the min length of the two given arrays, with the result of the
@@ -306,7 +330,8 @@ public class Utils {
      * @param a1 integer array with the dividends
      * @param a2 integer array with the divisors
      * @return double array with the result of the divisions
-     */
+     *//*
+
     public static double[] divArray(int[] a1, int[] a2) {
         int len = a1.length > a2.length ? a2.length : a1.length;
         double[] res = new double[len];
@@ -318,12 +343,14 @@ public class Utils {
 
     }
 
-    /**
+    */
+/**
      * Reads an integer with a personalized message
      *
      * @param msj String with the message
      * @return Validated integer
-     */
+     *//*
+
     public static int leerInt(String msj) {
         try (Scanner lector = new Scanner(System.in)) {
             int res = 0;
@@ -379,7 +406,8 @@ public class Utils {
         return res;
     }
 
-    /**
+    */
+/**
      * Prints a menu with personalized title, footer and initial sequence per element given.
      * <p>
      * If the initial sequence includes a {@code "."}, an autoincremental index will be added before the {@code "."}.
@@ -409,7 +437,8 @@ public class Utils {
      * @param footer String with the footer
      * @param init   String with the starting sequence.
      * @param args   Receives an undefinied number of Strings or a String array ({@code String[]})
-     */
+     *//*
+
     public static void deployMenu(String title, String footer, String init, String... args) {
         int idx = 1;
         String titleMod = new StringBuilder("*".repeat(title.length() + 6)
@@ -440,12 +469,14 @@ public class Utils {
         }
     }
 
-    /**
+    */
+/**
      * Reads an integer with a personalized message
      *
      * @param msj String with the message
      * @return Validated integer
-     */
+     *//*
+
     public static int readInt(String msj) {
         int res = 0;
         boolean valid;
@@ -466,12 +497,14 @@ public class Utils {
         return res;
     }
 
-    /**
+    */
+/**
      * Reads an integer with a limited number of digits with a personalized message
      *
      * @param msj String with the message
      * @return integer with the validated input
-     */
+     *//*
+
     public static int readLimitedInt(String msj, int limit) {
         int res = 0;
         boolean valid;
@@ -496,36 +529,42 @@ public class Utils {
         return res;
     }
 
-    /**
+    */
+/**
      * Reads a String with a personalized message
      *
      * @param msj String with the message
-     */
+     *//*
+
     public static String readString(String msj) {
         System.out.print(msj);
         return lector.nextLine();
     }
 
-    /**
+    */
+/**
      * Reads and returns a true/false user statement
      *
      * @param msj Personalized request message
      * @return boolean with the user selection
-     */
+     *//*
+
     public static boolean readOption(String msj) {
         System.out.print(msj);
         return lector.nextLine().charAt(0) == 'y';
     }
 
 
-    /**
+    */
+/**
      * Reads a date with a personalized message and format
      * SimpleDateFormat is used to parse the date
      * if no format is given, the default format is dd/MM/yyyy
      *
      * @param msj    String with the message
      * @param format String with the format
-     */
+     *//*
+
     public static String readDate(String msj, String format) {
         String res = "";
         boolean valid;
@@ -560,29 +599,34 @@ public class Utils {
         return res;
     }
 
-    /**
+    */
+/**
      * Reads a date with a personalized message and format
      * SimpleDateFormat is used to parse the date
      * if no format is given, the default format is dd/MM/yyyy
      *
      * @param msj String with the message
      * @return String with the validated date
-     */
+     *//*
+
     public static String readDate(String msj) {
         return readDate(msj, "dd/MM/yyyy");
     }
 
-    /**
+    */
+/**
      * Transforms a date format to a regular expression
      * The returned string has the same separators as the format
      *
      * @param date      String with the date format
      * @param separator String with the separator
      * @return String with the regular expression
-     */
+     *//*
+
     public static String dateToPattern(String date, String separator) {
         String[] dateParts = date.split(separator);
         return String.format("\\d{%d}%s\\d{%d}%s\\d{%d}", dateParts[0].length(), separator, dateParts[1].length(), separator, dateParts[2].length());
     }
 
 }
+*/
