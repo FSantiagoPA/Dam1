@@ -5,7 +5,23 @@ import java.util.Objects;
 
 public class Paciente {
     public enum Genero{
-        HOMBRE,MUJER,OTRO
+        HOMBRE,MUJER,OTRO;
+
+        @Override
+        public String toString() {
+            switch (this){
+                case HOMBRE -> {
+                    return "Hombre";
+                }
+                case MUJER -> {
+                    return "Mujer";
+                }
+                case OTRO -> {
+                    return "Otro";
+                }
+            }
+            return super.toString();
+        }
     }
     private final String sip;
     private final String nombre;

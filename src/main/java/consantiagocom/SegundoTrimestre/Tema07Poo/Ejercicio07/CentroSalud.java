@@ -58,6 +58,35 @@ public class CentroSalud {
             numAtencionMedica++;
         }
     }
+    public Paciente buscarPacientePorSip(String sip){
+        for (int i = 0; i <numPacientes; i++) {
+            if (pacientes[i].getSip().equals(sip)){
+                return pacientes[i];
+            }
+        }
+        return null;
+    }
+    public Paciente nuevoPaciente (String sip, String nombre, Paciente.Genero genero, Date fechaNacimiento){
+        if(buscarPacientePorSip(sip) != null)
+            return null;
+        Paciente paciente = new Paciente(sip, nombre, genero, fechaNacimiento);
+        pacientes[numPacientes++] = paciente;
+        return paciente;
+    }
+
+    public boolean entradaPaciente(Paciente paciente, String sintamlogia){
+        atencionMedicas[numAtencionMedica++] = new AtencionMedica(paciente,new Date(), sintamlogia);
+        return  true;
+    }
+    public Paciente buscarPacienteEspera(String sip){
+        for (int i = 0; i <numAtencionMedica; i++) {
+            Paciente paciente = atencionMedicas[i].getPaciente();
+            if (!atencionMedicas[i].isAtendido() && paciente.getSip().equals(sip)){
+                return paciente;
+            }
+        }
+        return null;
+    }
 
     @Override
     public String toString() {

@@ -30,6 +30,10 @@ public class AtencionMedica {
         return fechaEntrada;
     }
 
+    public boolean isAtendido(){
+        return preRev != null;
+    }
+
     public void setConstantesVitales(double temperatura,double ppm,double tensionSistolica,double tensionDistolica){
         preRev = new double[4];
         setTemperatura(temperatura);
