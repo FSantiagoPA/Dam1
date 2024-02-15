@@ -1,3 +1,4 @@
+/*
 
 package consantiagocom.SegundoTrimestre.Tema07Poo.Ejercicio07;
 import consantiagocom.SegundoTrimestre.Tema07Poo.Ejercicio07.Paciente;
@@ -20,12 +21,14 @@ public class AtencionMedica {
     private  String motivoAlta;
 
 
+*/
 /**
      * Constructor de atencion
      * @param paciente el paciente al que queremos crear una atencion
      * @param fechaEntrada fecha actual que seria cuando entra el paciente
      * @param sintomatologia la sintomologia que tenga el paciente
-     */
+     *//*
+
 
     public Atencion(Paciente paciente, Date fechaEntrada, String sintomatologia) {
         this.paciente = paciente;
@@ -55,13 +58,15 @@ public class AtencionMedica {
     }
 
 
+     */
 /**
      *
      * @param temperatura
      * @param ppm
      * @param tensionSistolica
      * @param tensionDistolica
-     */
+     *//*
+
 
     public void setconstantesVitales(double temperatura, double ppm, double tensionSistolica, double tensionDistolica){
         preRev = new double[4];
@@ -126,4 +131,6 @@ public class AtencionMedica {
                 "}\n";
     }
 }
+// Mi compa andre no sabe como subir cosas al git.....
 
+*/

@@ -18,7 +18,7 @@ public class Ejercicio02 {
             System.out.println("num1 es mayor que num2 = " + num1);
         } else if (num1 < num2) {
             System.out.println("num1 es menor que num1 = " + num1);
-        } else if (num1 == num2) {
+        } else {
             System.out.println("num1 y num2 son iguales = " + num1);
         }
         s.close();
