@@ -9,20 +9,17 @@ public class Paciente {
 
         @Override
         public String toString() {
-            switch (this){
-                case HOMBRE -> {
+            switch (this) {
+                case HOMBRE:
                     return "Hombre";
-                }
-                case MUJER -> {
+                case MUJER:
                     return "Mujer";
-                }
-                case OTRO -> {
+                case OTRO:
                     return "Otro";
-                }
             }
             return super.toString();
         }
-    }
+    };
     private final String sip;
     private final String nombre;
     private final Genero genero;
@@ -71,5 +68,15 @@ public class Paciente {
         result = 31 * result + (genero != null ? genero.hashCode() : 0);
         result = 31 * result + (fechaNacimiento != null ? fechaNacimiento.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Paciente{" +
+                "sip='" + sip + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", genero=" + genero +
+                ", fechaNacimiento=" + fechaNacimiento +
+                '}';
     }
 }

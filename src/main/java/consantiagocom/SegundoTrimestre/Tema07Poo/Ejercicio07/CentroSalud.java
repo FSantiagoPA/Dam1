@@ -1,3 +1,4 @@
+/*
 package consantiagocom.SegundoTrimestre.Tema07Poo.Ejercicio07;
 
 import net.datafaker.Faker;
@@ -10,91 +11,197 @@ import java.util.concurrent.TimeUnit;
 public class CentroSalud {
     private final Paciente[] pacientes;
     private int numPacientes;
-    private final AtencionMedica[] atencionMedicas;
-    private int numAtencionMedica;
+    private final Atencion[] atenciones;
+    private int numAtenciones;
 
-    public CentroSalud(int capacidadInicialPacientes, int capacidadInicialAtencionMedica){
-        pacientes = new Paciente[capacidadInicialPacientes];
+    */
+/**
+     * Constructor centro medico
+     * @param capacidadInicalPacientes define el tamaño del array de pacientes
+     * @param capacidadIncialAtenciones define el tamño del array de atenciones
+     *//*
+
+    public CentroMedico(int capacidadInicalPacientes, int capacidadIncialAtenciones){
+        pacientes = new Paciente[capacidadInicalPacientes];
         numPacientes = 0;
-        atencionMedicas = new AtencionMedica[capacidadInicialAtencionMedica];
-        numAtencionMedica = 0;
+        atenciones = new Atencion[capacidadIncialAtenciones];
+        numAtenciones = 0;
         if (Config.DEBUG) {
-            generarPacientesAleatroios(capacidadInicialPacientes);
-            generarAtencionesAleatorias(capacidadInicialAtencionMedica);
+            generarDatosAleatoriosPacientes(capacidadInicalPacientes);
+            generarDatosAleatoriosAtenciones(capacidadIncialAtenciones);
         }
     }
-    private void generarPacientesAleatroios(int cantidadPaciente){
-        Faker fk = new Faker(new Locale("es"));
-        for (int i = 0; i < cantidadPaciente ; i++) {
-            String sip = String.format("%05d",(i+1));
-            String nombre = fk.name().fullName();
-            Paciente.Genero[] valores = Paciente.Genero.values();
-            Paciente.Genero genero = valores[fk.random().nextInt(0, valores.length) - 1];
-            Date fechaNacimiento = fk.date().birthday(0,99);
-            pacientes[numPacientes++] = new Paciente(sip,nombre,genero,fechaNacimiento);
-            // otra forma de hacer numPacientes++;
+    private void generarDatosAleatoriosPacientes(int numMaxPacientes){
+        Faker fk = new Faker();
+        Random rnd = new Random();
+
+        String sip;
+        String nombre;
+        int seleccionGenero;
+        Paciente.Genero genero;
+        Date fechaNacimineto;
+
+        for(int i = 0; i < numMaxPacientes; i++){
+            sip = String.format("%05d",(i+1));
+            nombre = fk.name().fullName().toString();
+            seleccionGenero = rnd.nextInt(Paciente.Genero.values().length);
+            genero = Paciente.Genero.values()[seleccionGenero];
+            fechaNacimineto = fk.date().birthday();
+
+            pacientes[numPacientes] = new Paciente(sip,nombre, genero, fechaNacimineto);
+            numPacientes++;
         }
     }
-    private void generarAtencionesAleatorias(int cantidadAtenciones){
-        Faker fk = new Faker(new Locale("es"));
-        for (int i = 0; i < cantidadAtenciones ; i++) {
-            Date fechaEntrada = fk.date().past(30,0, TimeUnit.DAYS);
-            Paciente paciente = pacientes[i];  //---- Paciente paciente = pacientes[fk.random().nextInt(0,numPacientes -1];
-            String sintamologia = fk.medical().symptoms();
-            AtencionMedica atencionMedica = new AtencionMedica(paciente,fechaEntrada,sintamologia);
-            if (fk.random().nextInt(100) > 100 - 40){
-                double temperatura = fk.random().nextDouble(35,41);
+    private void generarDatosAleatoriosAtenciones(int numMaxAtenciones){
+        Faker fk = new Faker();
+
+        Date fechaEntrada;
+        String sintomologia;
+
+        for(int j = 0; j < numMaxAtenciones; j++){
+            fechaEntrada = fk.date().past(30,0, TimeUnit.DAYS);
+            Paciente paciente = pacientes[fk.random().nextInt(0, numPacientes - 1)];
+            sintomologia = fk.medical().symptoms();
+            Atencion atencion = new Atencion(paciente,fechaEntrada,sintomologia);
+
+            if(fk.random().nextInt(100) > 100 - 40) {
+                double temperatura = fk.random().nextDouble(35, 41);
                 double ppm = fk.random().nextDouble(50,110);
                 double tensionSistolica = fk.random().nextDouble(50,150);
-                double tensionDiastolica = fk.random().nextDouble(50,150);
-                atencionMedica.setConstantesVitales(temperatura,ppm,tensionSistolica,tensionDiastolica);
-                if (fk.random().nextInt(100) > 100 - 50){
+                double tensionDistolica = fk.random().nextDouble(50,150);
+                if(fk.random().nextInt(100) > 100 - 40) {
                     Date fechaAlta = fechaEntrada;
                     String motivoAlta = fk.medical().diagnosisCode();
-                    atencionMedica.altaPaciente(fechaAlta,motivoAlta);
+                    atencion.altaPaciente(fechaAlta,motivoAlta);
                 }
             }
-            atencionMedicas[numAtencionMedica] = atencionMedica;
-            numAtencionMedica++;
+            atenciones[numAtenciones] = atencion;
+            numAtenciones++;
+
         }
     }
+
+    */
+/**
+     * Busqueda de paciente por medio del sip
+     * @param sip define el sip del paciente que se busca
+     * @return el paciente en el que el sip coincide con el parametro sip dado
+     *//*
+
     public Paciente buscarPacientePorSip(String sip){
-        for (int i = 0; i <numPacientes; i++) {
-            if (pacientes[i].getSip().equals(sip)){
+        for (int i = 0; i < numPacientes; i++){
+            if(pacientes[i].getSip().equals(sip)){
                 return pacientes[i];
             }
         }
         return null;
     }
-    public Paciente nuevoPaciente (String sip, String nombre, Paciente.Genero genero, Date fechaNacimiento){
+    public Atencion buscarPorFecha(Date fechaInical, Date fechaFinal){
+        for (int i = 0; i < numAtenciones;i++){
+            int inicio = fechaInical.compareTo(atenciones[i].getFechaEntrada());
+            int finale = fechaFinal.compareTo(atenciones[i].getFechaEntrada());
+            if (inicio >= 0 && finale <= 0)
+                return atenciones[i];
+        }
+        return null;
+    }
+
+    public AtencionMedica[] obtenerHistorial(){
+        //opcion 1: Devolver dato originales
+        return atenciones;
+        //opcion 2: Devolver copia de las atenciones
+    }
+
+    */
+/**
+     * Crear nuevo paciente
+     * @param sip el sip del paciente
+     * @param nombre el nombre del paciente
+     * @param genero el genero del paciente
+     * @param fechaNacimineto la fecha de nacimiento del paciente
+     * @return el paciente creado correctamente
+     *//*
+
+    public Paciente nuevoPaciente(String sip, String nombre, Paciente.Genero genero, Date fechaNacimineto){
         if(buscarPacientePorSip(sip) != null)
             return null;
-        Paciente paciente = new Paciente(sip, nombre, genero, fechaNacimiento);
+        Paciente paciente = new Paciente(sip,nombre,genero,fechaNacimineto);
         pacientes[numPacientes++] = paciente;
         return paciente;
     }
 
-    public boolean entradaPaciente(Paciente paciente, String sintamlogia){
-        atencionMedicas[numAtencionMedica++] = new AtencionMedica(paciente,new Date(), sintamlogia);
-        return  true;
-    }
-    public Paciente buscarPacienteEspera(String sip){
-        for (int i = 0; i <numAtencionMedica; i++) {
-            Paciente paciente = atencionMedicas[i].getPaciente();
-            if (!atencionMedicas[i].isAtendido() && paciente.getSip().equals(sip)){
-                return paciente;
+    */
+/**
+     * Para buscar el paciente a atender
+     * @param sip usamos el sip para buscar el paciente que tiene que ser atendido
+     * @return la atencion del paciente que tenga dicho sip
+     *//*
+
+    public Atencion buscarAtencionPaciente(String sip){
+        for (int i = 0; i < numAtenciones; i++){
+            Paciente paciente = atenciones[i].getPaciente();
+            if (atenciones[i].isAtendido() && paciente.getSip().equals(sip)){
+                return atenciones[i];
             }
         }
         return null;
     }
 
+    */
+/**
+     * Atender al paciente
+     * @param sip para buscar al paciente a atender
+     * @param temperatura la temperatura del paciente
+     * @param ppm las pulsaciones por minuto del paciente
+     * @param tensionSistolica la tension sistolica del paciente
+     * @param tensionDiastolica la tension diastolica del paciente
+     * @return false si la atencion del paciente esta vacio y true si se a efectuado correctamente la atencion
+     *//*
+
+    public boolean atenderPaciente(String sip,double temperatura,double ppm,double tensionSistolica,double tensionDiastolica){
+        Atencion atencion = buscarAtencionPaciente(sip);
+        if (atencion == null)
+            return false;
+        atencion.setconstantesVitales(temperatura,ppm,tensionSistolica,tensionDiastolica);
+        return true;
+    }
+
+    */
+/**
+     * Crear la atencion para el paciente
+     * @param paciente el paciente al que queremos crear la atencion
+     * @param sintomalogia la sintologia que tiene el paciente
+     * @return true para verificar que se a creado correctamnete
+     *//*
+
+    public boolean entradaPaciente(Paciente paciente, String sintomalogia){
+        atenciones[numAtenciones] = new Atencion(paciente, new Date(),sintomalogia);
+        numAtenciones++;
+        return true;
+    }
+
+    */
+/**
+     * Buscar a un paciente en espera por su sip
+     * @param sip el sip co elq ue quermos buscar al paciente
+     * @return el paciente que esta en espera con dicho sip o nada ya que no existe ningun paciente con dicho sip en espera
+     *//*
+
+    public Paciente buscarPacienteEnEspera(String sip){
+        for (int i = 0; i < numAtenciones; i++){
+            Paciente paciente = atenciones[i].getPaciente();
+            if (atenciones[i].isAtendido() && paciente.getSip().equals(sip)){
+                return paciente;
+            }
+        }
+        return null;
+    }
     @Override
     public String toString() {
-        return "CentroSalud{" +
-                "pacientes=" + Arrays.toString(pacientes) +
-                ", numPacientes=" + numPacientes +
-                ", atencionMedicas=" + Arrays.toString(atencionMedicas) +
-                ", numAtencionMedica=" + numAtencionMedica +
+        return "CentroMedico{" + "\n" +
+                "pacientes=" + Arrays.toString(pacientes) + "\n" +
+                "atenciones=" + Arrays.toString(atenciones) +
                 '}';
     }
 }
+*/

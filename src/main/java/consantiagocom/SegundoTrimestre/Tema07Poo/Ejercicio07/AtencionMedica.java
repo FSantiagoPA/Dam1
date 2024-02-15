@@ -1,4 +1,6 @@
+
 package consantiagocom.SegundoTrimestre.Tema07Poo.Ejercicio07;
+import consantiagocom.SegundoTrimestre.Tema07Poo.Ejercicio07.Paciente;
 
 import java.util.Arrays;
 import java.util.Date;
@@ -6,43 +8,67 @@ import java.util.Date;
 public class AtencionMedica {
 
     private static final int POSICION_TEMPERATURA = 0;
-    private static final int POSICION_PMM = 1;
-    private static final int POSICION_TENSION_SISCOLICA = 2;
-    private static final int POSICION_DIASTOLICA = 3;
+    private static final int POSICION_PPM = 1;
+    private static final int POSICION_TENSION_SISTOLICA = 2;
+    private static final int POSICION_TENSION_DISTOLICA = 3;
+
     private final Paciente paciente;
     private final Date fechaEntrada;
-    private final String sintomalogia;
+    private final String sintomatologia;
     private double[] preRev;
     private  Date fechaAlta;
     private  String motivoAlta;
 
-    public AtencionMedica(Paciente paciente, Date fechaEntrada, String sintomalogia) {
+
+/**
+     * Constructor de atencion
+     * @param paciente el paciente al que queremos crear una atencion
+     * @param fechaEntrada fecha actual que seria cuando entra el paciente
+     * @param sintomatologia la sintomologia que tenga el paciente
+     */
+
+    public Atencion(Paciente paciente, Date fechaEntrada, String sintomatologia) {
         this.paciente = paciente;
         this.fechaEntrada = fechaEntrada;
-        this.sintomalogia = sintomalogia;
+        this.sintomatologia = sintomatologia;
+        preRev = null;
+        if (atencion.motivoAlta != null)
+    }
+    public boolean isAtendido(){
+        return preRev == null;
     }
 
     public Paciente getPaciente() {
         return paciente;
+    }
+    public void altaPaciente(Date fechaAlta, String motivoAlta){
+        this.fechaAlta = fechaAlta;
+        this.motivoAlta = motivoAlta;
     }
 
     public Date getFechaEntrada() {
         return fechaEntrada;
     }
 
-    public boolean isAtendido(){
-        return preRev != null;
+    public String getSintomatologia() {
+        return sintomatologia;
     }
 
-    public void setConstantesVitales(double temperatura,double ppm,double tensionSistolica,double tensionDistolica){
+
+/**
+     *
+     * @param temperatura
+     * @param ppm
+     * @param tensionSistolica
+     * @param tensionDistolica
+     */
+
+    public void setconstantesVitales(double temperatura, double ppm, double tensionSistolica, double tensionDistolica){
         preRev = new double[4];
         setTemperatura(temperatura);
         setPPM(ppm);
-        setTensionSiscolica(tensionSistolica);
-        setTensionDiscolica(tensionDistolica);
-    }
-    public String getSintomalogia() {
-        return sintomalogia;
+        setTensionSistolica(tensionSistolica);
+        setTensionDistolica(tensionDistolica);
     }
 
     public double getTemperatura(){
@@ -50,7 +76,6 @@ public class AtencionMedica {
             return -1;
         return preRev[POSICION_TEMPERATURA];
     }
-
     private void setTemperatura(double temperatura){
         preRev[POSICION_TEMPERATURA] = temperatura;
     }
@@ -58,31 +83,27 @@ public class AtencionMedica {
     public double getPPM(){
         if (preRev == null)
             return -1;
-        return preRev[POSICION_PMM];
+        return preRev[POSICION_PPM];
+    }
+    private void setPPM(double ppm){
+        preRev[POSICION_PPM] = ppm;
     }
 
-    private void setPPM(double PPM){
-        preRev[POSICION_PMM] = PPM;
-    }
-
-    public double getTensionSiscolica(){
+    public double getTensionSistolica(){
         if (preRev == null)
             return -1;
-        return preRev[POSICION_TENSION_SISCOLICA];
+        return preRev[POSICION_TENSION_SISTOLICA];
     }
-
-    private void setTensionSiscolica(double tensionSiscolica){
-        preRev[POSICION_TENSION_SISCOLICA] = tensionSiscolica;
+    private void setTensionSistolica(double tensionSistolica){
+        preRev[POSICION_TENSION_SISTOLICA] = tensionSistolica;
     }
-
     public double getTensionDistolica(){
         if (preRev == null)
             return -1;
-        return preRev[POSICION_DIASTOLICA];
+        return preRev[POSICION_TENSION_SISTOLICA];
     }
-
-    private void setTensionDiscolica(double tensionDiscolica){
-        preRev[POSICION_DIASTOLICA] = tensionDiscolica;
+    private void setTensionDistolica(double tensionDistolica){
+        preRev[POSICION_TENSION_DISTOLICA] = tensionDistolica;
     }
 
     public Date getFechaAlta() {
@@ -93,38 +114,16 @@ public class AtencionMedica {
         return motivoAlta;
     }
 
-    public void altaPaciente(Date fechaAlta, String motivoAlta){
-        this.fechaAlta = fechaAlta;
-        this.motivoAlta = motivoAlta;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        AtencionMedica that = (AtencionMedica) o;
-
-        if (!paciente.equals(that.paciente)) return false;
-        return fechaEntrada.equals(that.fechaEntrada);
-    }
-
-    @Override
-    public int hashCode() {
-        int result = paciente.hashCode();
-        result = 31 * result + fechaEntrada.hashCode();
-        return result;
-    }
-
     @Override
     public String toString() {
-        return "AtencionMedica{" +
+        return "Atencion{" +
                 "paciente=" + paciente +
                 ", fechaEntrada=" + fechaEntrada +
-                ", sintomalogia='" + sintomalogia + '\'' +
+                ", sintomatologia='" + sintomatologia + '\'' +
                 ", preRev=" + Arrays.toString(preRev) +
                 ", fechaAlta=" + fechaAlta +
                 ", motivoAlta='" + motivoAlta + '\'' +
-                '}';
+                "}\n";
     }
 }
+
