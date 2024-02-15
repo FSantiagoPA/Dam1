@@ -34,14 +34,14 @@ public class Principal {
                     nuevoPaciente();
                     break;
                 case 2:
-                    atenderPaciente();
-                    break;
-                case 3:
-                    consultas();
-                    break;
-                case 4:
-                    altaMedica();
-                    break;
+//                    atenderPaciente();
+//                    break;
+//                case 3:
+//                    consultas();
+//                    break;
+//                case 4:
+//                    altaMedica();
+//                    break;
                 case 5:
                     System.out.println("Hasta pronto");
                     break;
