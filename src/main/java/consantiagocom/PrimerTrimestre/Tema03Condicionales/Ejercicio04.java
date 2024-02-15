@@ -1,4 +1,4 @@
-package consantiagocom.PrimerTrimestre.Tema03;
+package consantiagocom.PrimerTrimestre.Tema03Condicionales;
 
 import java.util.Scanner;
 
