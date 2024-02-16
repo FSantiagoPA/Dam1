@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'application'
 }
 
 group = 'consantiagocom'
@@ -7,6 +8,14 @@ version = '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+}
+
+application{
+    mainClassName = "consantiagocom.SegundoTrimestre.Tema07Poo.Anexo2Pila.Main01"
+}
+
+run{
+    standardInput = System.in
 }
 
 dependencies {
