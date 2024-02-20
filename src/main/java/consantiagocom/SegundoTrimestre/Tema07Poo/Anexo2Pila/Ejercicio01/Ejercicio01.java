@@ -27,6 +27,5 @@ public class Ejercicio01 {
             }
         }
         return pila.isEmpty();
-
     }
 }

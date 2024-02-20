@@ -6,14 +6,13 @@ public class Principal {
     private final String texto;
     public Principal(){
         Scanner scanner = new Scanner(System.in);
-        StringBuilder stb = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
 
         while (scanner.hasNext()) {
-            stb.append(scanner.nextLine()).append(" ");
+            sb.append(scanner.nextLine()).append(" ");
         }
-        String texto  = stb.toString();
+        String texto  = sb.toString();
         this.texto = texto.replaceAll("\\s+", " ");
-
     }
     public String getTexto() {
         return texto;
