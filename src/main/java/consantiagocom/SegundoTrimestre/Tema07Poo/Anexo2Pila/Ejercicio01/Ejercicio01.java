@@ -11,9 +11,9 @@ public class Ejercicio01 {
     }
     public boolean inspeccionDeCodigo(){
         for (int i = 0; i < texto.length(); i++) {
-            if (texto.charAt(i ) == '(' || texto.charAt(i)  == '{' || texto.charAt(i) == '[')
+            if (texto.charAt(i) == '(' || texto.charAt(i)  == '{' || texto.charAt(i) == '[')
                 pila.push(String.valueOf(texto.charAt(i)));
-            else if (texto.charAt(i ) == ')' || texto.charAt(i)  == '}' || texto.charAt(i) == ']') {
+            else if (texto.charAt(i) == ')' || texto.charAt(i)  == '}' || texto.charAt(i) == ']') {
                 if(pila.isEmpty())
                     return false;
                 String aux = pila.pop();
