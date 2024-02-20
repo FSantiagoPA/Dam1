@@ -17,6 +17,6 @@ public class Ejercicio07 {
         exponente = scanner.nextInt();
         scanner.close();
 
-
+        
     }
 }
