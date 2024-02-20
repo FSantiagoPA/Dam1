@@ -9,7 +9,7 @@ public class Ejercicio01 {
         this.pila = pila;
         this.texto = texto;
     }
-    public boolean correctorCodigo(){
+    public boolean inspeccionDeCodigo(){
         for (int i = 0; i < texto.length(); i++) {
             if (texto.charAt(i ) == '(' || texto.charAt(i)  == '{' || texto.charAt(i) == '[')
                 pila.push(String.valueOf(texto.charAt(i)));
