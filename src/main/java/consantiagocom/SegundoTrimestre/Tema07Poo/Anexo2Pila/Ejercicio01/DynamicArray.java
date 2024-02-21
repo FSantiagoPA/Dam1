@@ -1,6 +1,7 @@
 package consantiagocom.SegundoTrimestre.Tema07Poo.Anexo2Pila.Ejercicio01;
 
 public class DynamicArray {
+    private final static float factorCrecimiento = 2f;
     private double[] dato;
     private int size;
 
@@ -35,8 +36,15 @@ public class DynamicArray {
         dato[index] = value;
                 return true;
     }
+    public boolean set(int index, int value) {
+        if (index >= size)
+            return false;
+
+        dato[index] = value;
+        return true;
+    }
    private double[] aumentarTamanio(){
-       double[] nuevoArray = new double[size*2];
+       double[] nuevoArray = new double[(int) (size*factorCrecimiento)];
         dato = nuevoArray;
         return nuevoArray;
     }
