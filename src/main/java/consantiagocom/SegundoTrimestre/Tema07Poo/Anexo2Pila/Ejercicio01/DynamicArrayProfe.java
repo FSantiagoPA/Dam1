@@ -4,7 +4,8 @@ import java.util.Arrays;
 
 public class DynamicArrayProfe {
 
-    private final float GROW_FACTOR = 2f;
+    private static final float GROW_FACTOR = 2f;
+    private static  final int DEFAULT_CAPACITY = 0;
     private double [] data;
     private int elementCount;
 
@@ -12,12 +13,15 @@ public class DynamicArrayProfe {
         data = new double[capacidadInicial];
         elementCount = 0;
     }
+    public DynamicArrayProfe(){
+        this(DEFAULT_CAPACITY);
+    }
     public boolean isFull(){
         return elementCount == data.length;
     }
     private void resize(){
         double[] copy = new double[Math.round(data.length * GROW_FACTOR)];
-        for (int i = 0; i < elementCount; i++) {
+        for (int i = 0; i <= elementCount; i++) {
             copy[i] = data[i];
         }
         data = copy;
@@ -30,7 +34,7 @@ public class DynamicArrayProfe {
         return true;
     }
     public boolean add(int index, double value){
-        if (index > elementCount || index < 0)
+        if (index >= elementCount || index < 0)
             return false;
         if (isFull()){
             resize();
@@ -40,13 +44,13 @@ public class DynamicArrayProfe {
         return true;
     }
     private void moveToRight(int index){
-        for (int i = elementCount; i <index; i++) {
+        for (int i = elementCount; i <= index; i++) {
             data[i] = data[i-1];
         }
         elementCount++;
     }
     private void moveToLeft(int index){
-        for (int i = index; i <elementCount - 1; i++) {
+        for (int i = index; i <= elementCount - 1; i++) {
             data[i] = data[i+1];
         }
         elementCount--;
@@ -61,7 +65,7 @@ public class DynamicArrayProfe {
     }
     public double remove(double element){
         double result = Double.POSITIVE_INFINITY;
-        for (int i = 0; i <elementCount; i++) {
+        for (int i = 0; i <= elementCount; i++) {
             if (data[i] == element){
                 result = data[i];
                 moveToLeft(i);
@@ -71,12 +75,12 @@ public class DynamicArrayProfe {
         return result;
     }
     public double get(int index) {
-        if (index > elementCount || index < 0)
+        if (index >= elementCount || index <= 0)
             return Double.POSITIVE_INFINITY;
         return data[index];
     }
     public boolean set(int index, double value){
-        if (index > elementCount || index < 0)
+        if (index >= elementCount || index <= 0)
             return false;
         data[index] = value;
         return true;
@@ -90,7 +94,7 @@ public class DynamicArrayProfe {
         DynamicArrayProfe that = (DynamicArrayProfe) o;
 
         if (elementCount != that.elementCount) return false;
-        for(int i = 0; i <elementCount; i++) {
+        for(int i = 0; i <= elementCount; i++) {
             if (data[i] != that.data[i])
                 return false;
         }
@@ -107,7 +111,7 @@ public class DynamicArrayProfe {
         //los primeros elementCount -1 elementos
 
         double[] effectiveArray = new double[elementCount];
-        for (int i = 0; i <effectiveArray.length; i++) {
+        for (int i = 0; i <=     effectiveArray.length; i++) {
             effectiveArray[i]= data[i];
         }
         int result = Arrays.hashCode(data);
@@ -117,9 +121,12 @@ public class DynamicArrayProfe {
 
     @Override
     public String toString() {
-        return "DynamicArrayProfe{ " +
-                "data= " + Arrays.toString(data) +
-                ", elementCount=" + elementCount +
-                " }";
+        StringBuilder sb = new StringBuilder();
+        sb.append("{ ");
+        for (int i = 0; i <elementCount; i++) {
+            sb.append(String.format("%.02f ",data[i]));
+        }
+        sb.append(" }");
+        return sb.toString();
     }
 }
