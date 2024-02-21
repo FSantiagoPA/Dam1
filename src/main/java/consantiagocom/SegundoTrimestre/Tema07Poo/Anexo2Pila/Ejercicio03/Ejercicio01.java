@@ -1,4 +1,4 @@
-package consantiagocom.SegundoTrimestre.Tema07Poo.Anexo2Pila.Ejercicio01;
+package consantiagocom.SegundoTrimestre.Tema07Poo.Anexo2Pila.Ejercicio03;
 
 import consantiagocom.SegundoTrimestre.Tema07Poo.Anexo2Pila.Pila;
 

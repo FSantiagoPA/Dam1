@@ -1,4 +1,4 @@
-package consantiagocom.SegundoTrimestre.Tema07Poo.Anexo2Pila.Ejercicio01;
+package consantiagocom.SegundoTrimestre.Tema07Poo.Anexo2Pila.Ejercicio03;
 
 import java.util.Scanner;
 
@@ -12,7 +12,7 @@ public class Principal {
             sb.append(scanner.nextLine()).append(" ");
         }
         String texto  = sb.toString();
-        this.texto = texto.replaceAll("\\s+", " ");
+        this.texto = texto.replaceAll("\\s+", "");
     }
     public String getTexto() {
         return texto;
