@@ -1,31 +1,30 @@
-/*
 package consantiagocom.SegundoTrimestre.Tema07Poo.Ejercicio07;
 
 import net.datafaker.Faker;
 
 import java.util.Arrays;
 import java.util.Date;
-import java.util.Locale;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-public class CentroSalud {
+public class CentroMedico {
     private final Paciente[] pacientes;
     private int numPacientes;
     private final Atencion[] atenciones;
     private int numAtenciones;
+    private double[] estadisticas;
 
-    */
-/**
+    /**
      * Constructor centro medico
      * @param capacidadInicalPacientes define el tamaño del array de pacientes
      * @param capacidadIncialAtenciones define el tamño del array de atenciones
-     *//*
-
+     */
     public CentroMedico(int capacidadInicalPacientes, int capacidadIncialAtenciones){
         pacientes = new Paciente[capacidadInicalPacientes];
         numPacientes = 0;
         atenciones = new Atencion[capacidadIncialAtenciones];
         numAtenciones = 0;
+        estadisticas = null;
         if (Config.DEBUG) {
             generarDatosAleatoriosPacientes(capacidadInicalPacientes);
             generarDatosAleatoriosAtenciones(capacidadIncialAtenciones);
@@ -81,13 +80,11 @@ public class CentroSalud {
         }
     }
 
-    */
-/**
+    /**
      * Busqueda de paciente por medio del sip
      * @param sip define el sip del paciente que se busca
      * @return el paciente en el que el sip coincide con el parametro sip dado
-     *//*
-
+     */
     public Paciente buscarPacientePorSip(String sip){
         for (int i = 0; i < numPacientes; i++){
             if(pacientes[i].getSip().equals(sip)){
@@ -105,23 +102,47 @@ public class CentroSalud {
         }
         return null;
     }
+    public double[] estadisticas(){
+        estadisticas = new double[4];
+        double temperaturas = 0;
+        double ppms = 0;
+        double tensionesSistolicas = 0;
+        double tensionesDistolicas = 0;
+        for (int i = 0; i < numAtenciones; i++){
+            temperaturas += atenciones[i].getTemperatura();
+            ppms += atenciones[i].getPPM();
+            tensionesSistolicas += atenciones[i].getTensionSistolica();
+            tensionesDistolicas += atenciones[i].getTensionDistolica();
+        }
+        estadisticas[0] = temperaturas / numAtenciones;
+        estadisticas[1] = ppms / numAtenciones;
+        estadisticas[2] = tensionesSistolicas / numAtenciones;
+        estadisticas[3] = tensionesDistolicas / numAtenciones;
 
-    public AtencionMedica[] obtenerHistorial(){
-        //opcion 1: Devolver dato originales
-        return atenciones;
-        //opcion 2: Devolver copia de las atenciones
+        return estadisticas;
     }
 
-    */
-/**
+    public Atencion[] obtenerHistorial(){
+        //Opcion 1: Devolver datos originales
+        //return atenciones;
+        //Opcion 2: Devolver copia de las atenciones
+        Atencion[] historicoAtenciones = new Atencion[numAtenciones];
+        for (int i = 0; i < numAtenciones;i++){
+            historicoAtenciones[i] =  new Atencion(atenciones[i]);
+        }
+        return historicoAtenciones;
+    }
+    /*public boolean altaMedica(String sip, String motivoAlta){
+        //buscarAtencionPacienteNoAtendido()
+    }*/
+    /**
      * Crear nuevo paciente
      * @param sip el sip del paciente
      * @param nombre el nombre del paciente
      * @param genero el genero del paciente
      * @param fechaNacimineto la fecha de nacimiento del paciente
      * @return el paciente creado correctamente
-     *//*
-
+     */
     public Paciente nuevoPaciente(String sip, String nombre, Paciente.Genero genero, Date fechaNacimineto){
         if(buscarPacientePorSip(sip) != null)
             return null;
@@ -130,14 +151,12 @@ public class CentroSalud {
         return paciente;
     }
 
-    */
-/**
+    /**
      * Para buscar el paciente a atender
      * @param sip usamos el sip para buscar el paciente que tiene que ser atendido
      * @return la atencion del paciente que tenga dicho sip
-     *//*
-
-    public Atencion buscarAtencionPaciente(String sip){
+     */
+    public Atencion buscarAtencionPaciente(String sip, boolean atendido){
         for (int i = 0; i < numAtenciones; i++){
             Paciente paciente = atenciones[i].getPaciente();
             if (atenciones[i].isAtendido() && paciente.getSip().equals(sip)){
@@ -147,8 +166,7 @@ public class CentroSalud {
         return null;
     }
 
-    */
-/**
+    /**
      * Atender al paciente
      * @param sip para buscar al paciente a atender
      * @param temperatura la temperatura del paciente
@@ -156,37 +174,32 @@ public class CentroSalud {
      * @param tensionSistolica la tension sistolica del paciente
      * @param tensionDiastolica la tension diastolica del paciente
      * @return false si la atencion del paciente esta vacio y true si se a efectuado correctamente la atencion
-     *//*
-
-    public boolean atenderPaciente(String sip,double temperatura,double ppm,double tensionSistolica,double tensionDiastolica){
-        Atencion atencion = buscarAtencionPaciente(sip);
+     */
+    /*public boolean atenderPaciente(String sip,double temperatura,double ppm,double tensionSistolica,double tensionDiastolica){
+        Atencion atencion = buscarAtencionPacienteNoAtendido(sip);
         if (atencion == null)
             return false;
         atencion.setconstantesVitales(temperatura,ppm,tensionSistolica,tensionDiastolica);
         return true;
-    }
+    }*/
 
-    */
-/**
+    /**
      * Crear la atencion para el paciente
      * @param paciente el paciente al que queremos crear la atencion
      * @param sintomalogia la sintologia que tiene el paciente
      * @return true para verificar que se a creado correctamnete
-     *//*
-
+     */
     public boolean entradaPaciente(Paciente paciente, String sintomalogia){
         atenciones[numAtenciones] = new Atencion(paciente, new Date(),sintomalogia);
         numAtenciones++;
         return true;
     }
 
-    */
-/**
+    /**
      * Buscar a un paciente en espera por su sip
      * @param sip el sip co elq ue quermos buscar al paciente
      * @return el paciente que esta en espera con dicho sip o nada ya que no existe ningun paciente con dicho sip en espera
-     *//*
-
+     */
     public Paciente buscarPacienteEnEspera(String sip){
         for (int i = 0; i < numAtenciones; i++){
             Paciente paciente = atenciones[i].getPaciente();
@@ -203,5 +216,9 @@ public class CentroSalud {
                 "atenciones=" + Arrays.toString(atenciones) +
                 '}';
     }
+
+    public boolean atenderPaciente(String sip, double temperatura, double ppm, double tensionSistolica, double tensionDiastolica) {
+        return false;
+    }
+
 }
-*/

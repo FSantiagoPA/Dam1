@@ -1,14 +1,13 @@
-/*
 package consantiagocom.SegundoTrimestre.Tema07Poo.Ejercicio07;
 
-import consantiagocom.SegundoTrimestre.Tema07Poo.Lib.ConsolMenu;
+import consantiagocom.SegundoTrimestre.Tema07Poo.Lib.ConsoleMenu;
 import consantiagocom.SegundoTrimestre.Tema07Poo.Lib.LibIO;
-
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.Scanner;
 
-public class Principal {
-
+public class Main {
     public static CentroMedico centroMedico;
     public static ConsoleMenu consoleMenu;
     public static ConsoleMenu consoleGenero;
@@ -27,7 +26,7 @@ public class Principal {
         Paciente.Genero[] generos = Paciente.Genero.values();
         consoleGenero = new ConsoleMenu("Opciones");
         for (int i = 0; i < generos.length; i++) {
-            consoleGenero.addOption(generos[i].toString());
+            consoleGenero.addOption( generos[i].toString());
         }
 
         consoleConsultas = new ConsoleMenu("Consultas");
@@ -35,6 +34,7 @@ public class Principal {
         consoleConsultas.addOption(" Por fechas");
         consoleConsultas.addOption(" Estadisticas");
         consoleConsultas.addOption(" Mostrar historico mensual");
+        consoleConsultas.addOption(" AltaMedica");
 
 
         int opcion;
@@ -62,17 +62,17 @@ public class Principal {
     }
     public static void nuevoPaciente() {
         String sip;
-        sip = IOLib.solicitarString("Sip", 4, 12);
+        sip = LibIO.solicitarString("Sip", 4, 12);
 
         Paciente paciente = centroMedico.buscarPacientePorSip(sip);
         if (paciente == null) {
             System.out.printf("No existe ningun paciente con el sip %s.", sip);
-            String nombre = IOLib.solicitarString("Nombre: ", 2, 30);
+            String nombre = LibIO.solicitarString("Nombre: ", 2, 30);
 
             int opcionGenero = consoleGenero.showMenu();
             Paciente.Genero genero = Paciente.Genero.values()[opcionGenero - 1];
 
-            Date fechaNacimiento = IOLib.solicitarFechaDate("Fecha nacimiento [dd/MM/yyyy]: ", new SimpleDateFormat("dd/MM/yyyy"));
+            Date fechaNacimiento = LibIO.solicitarFechaDate("Fecha nacimiento [dd/MM/yyyy]: ", new SimpleDateFormat("dd/MM/yyyy"));
 
             paciente = centroMedico.nuevoPaciente(sip, nombre, genero, fechaNacimiento);
             if (paciente == null) {
@@ -82,7 +82,7 @@ public class Principal {
             }
         }
 
-        String sintomalogia = IOLib.solicitarString("Sintomalogia: ", 4, 50);
+        String sintomalogia = LibIO.solicitarString("Sintomalogia: ", 4, 50);
         if (centroMedico.entradaPaciente(paciente, sintomalogia)) {
             System.out.println("Entradada del paciente registrada correctamente");
         } else {
@@ -91,17 +91,17 @@ public class Principal {
         System.out.println(centroMedico);
     }
     public static void atenderPaciente(){
-        String sip = IOLib.solicitarString("Sip: ",4,12);
+        String sip = LibIO.solicitarString("Sip: ",4,12);
         Paciente paciente = centroMedico.buscarPacienteEnEspera(sip);
         if(paciente == null) {
             System.out.println("No existe ningun paciente en espera con ese sip");
             return;
         }
         System.out.println("Constantes vitales");
-        double temperatura = IOLib.solicitarDouble("Temperatura: ",34,45);
-        double ppm = IOLib.solicitarDouble("Pulsaciones por minuto: ",30,250);
-        double tensionSistolica = IOLib.solicitarDouble("Tension sistolica: ",40,200);
-        double tensionDiastolica = IOLib.solicitarDouble("Tension sistolica: ",40,200);
+        double temperatura = LibIO.solicitarDouble("Temperatura: ",34,45);
+        double ppm = LibIO.solicitarDouble("Pulsaciones por minuto: ",30,250);
+        double tensionSistolica = LibIO.solicitarDouble("Tension sistolica: ",40,200);
+        double tensionDiastolica = LibIO.solicitarDouble("Tension sistolica: ",40,200);
         if(centroMedico.atenderPaciente(sip,temperatura,ppm,tensionSistolica,tensionDiastolica)){
             System.out.println("El paciente a sido atendido correctamente");
         }else{
@@ -120,8 +120,20 @@ public class Principal {
                 Date fechaInical = LibIO.solicitarFechaDate("Dime la fecha de incio: ", new SimpleDateFormat("dd/MM/yyyy"));
                 Date fechaFinal = LibIO.solicitarFechaDate("Dime la fecha de incio: ", new SimpleDateFormat("dd/MM/yyyy"));
                 System.out.println(centroMedico.buscarPorFecha(fechaInical,fechaFinal));
+            case 3:
+                System.out.println(centroMedico.estadisticas());
+            case 4:
+                Atencion[] historialAtenciones = centroMedico.obtenerHistorial();
+                System.out.println(Arrays.toString(historialAtenciones));
+
+                historialAtenciones[0].setconstantesVitales(-1000,-1000,-1000,-1000);
+                System.out.println(historialAtenciones[0]);
+
+                historialAtenciones = centroMedico.obtenerHistorial();
+                System.out.println(historialAtenciones[0]);
+            case 5:
+                String sipp = LibIO.solicitarString("Sip: ",4,12);
+
         }
     }
-
 }
-*/

@@ -16,7 +16,5 @@ public class Ejercicio07 {
         System.out.print("Indica el exponente: ");
         exponente = scanner.nextInt();
         scanner.close();
-
-        
     }
 }

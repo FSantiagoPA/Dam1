@@ -1,13 +1,9 @@
-/*
-
 package consantiagocom.SegundoTrimestre.Tema07Poo.Ejercicio07;
-import consantiagocom.SegundoTrimestre.Tema07Poo.Ejercicio07.Paciente;
 
 import java.util.Arrays;
 import java.util.Date;
 
-public class AtencionMedica {
-
+public class Atencion {
     private static final int POSICION_TEMPERATURA = 0;
     private static final int POSICION_PPM = 1;
     private static final int POSICION_TENSION_SISTOLICA = 2;
@@ -20,22 +16,35 @@ public class AtencionMedica {
     private  Date fechaAlta;
     private  String motivoAlta;
 
-
-*/
-/**
+    /**
      * Constructor de atencion
      * @param paciente el paciente al que queremos crear una atencion
      * @param fechaEntrada fecha actual que seria cuando entra el paciente
      * @param sintomatologia la sintomologia que tenga el paciente
-     *//*
-
-
+     */
     public Atencion(Paciente paciente, Date fechaEntrada, String sintomatologia) {
         this.paciente = paciente;
         this.fechaEntrada = fechaEntrada;
         this.sintomatologia = sintomatologia;
         preRev = null;
-        if (atencion.motivoAlta != null)
+    }
+    public Atencion(Atencion atencion){
+        this.fechaEntrada = new Date(atencion.fechaEntrada.getTime());
+        this.sintomatologia = new String(atencion.sintomatologia);
+        this.preRev = new double[atencion.preRev.length];
+        this.paciente = new Paciente(atencion.paciente);
+
+        if (atencion.preRev != null) {
+            for (int i = 0; i < preRev.length; i++) {
+                preRev[i] = atencion.preRev[i];
+            }
+        }
+        if (atencion.fechaAlta != null) {
+            this.fechaAlta = new Date(atencion.fechaAlta.getTime());
+        }
+        if (atencion.motivoAlta != null) {
+            this.motivoAlta = new String(atencion.motivoAlta);
+        }
     }
     public boolean isAtendido(){
         return preRev == null;
@@ -57,17 +66,13 @@ public class AtencionMedica {
         return sintomatologia;
     }
 
-
-     */
-/**
+    /**
      *
      * @param temperatura
      * @param ppm
      * @param tensionSistolica
      * @param tensionDistolica
-     *//*
-
-
+     */
     public void setconstantesVitales(double temperatura, double ppm, double tensionSistolica, double tensionDistolica){
         preRev = new double[4];
         setTemperatura(temperatura);
@@ -131,6 +136,3 @@ public class AtencionMedica {
                 "}\n";
     }
 }
-// Mi compa andre no sabe como subir cosas al git.....
-
-*/

@@ -31,6 +31,13 @@ public class Paciente {
         this.genero = genero;
         this.fechaNacimiento = fechaNacimiento;
     }
+    public Paciente(Paciente paciente){
+        this.sip = new String(paciente.sip);
+        this.nombre = new String(paciente.nombre);
+        this.genero = paciente.genero;
+        this.fechaNacimiento = new Date(paciente.fechaNacimiento.getTime());
+
+    }
 
     public String getSip() {
         return sip;
