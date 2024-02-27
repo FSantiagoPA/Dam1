@@ -132,9 +132,10 @@ public class CentroMedico {
         }
         return historicoAtenciones;
     }
-    /*public boolean altaMedica(String sip, String motivoAlta){
-        //buscarAtencionPacienteNoAtendido()
-    }*/
+    public boolean altaMedica(String sip, String motivoAlta){
+        //buscarAtencionPacienteNoAtendido();
+        return false;
+    }
     /**
      * Crear nuevo paciente
      * @param sip el sip del paciente
@@ -175,7 +176,7 @@ public class CentroMedico {
      * @param tensionDiastolica la tension diastolica del paciente
      * @return false si la atencion del paciente esta vacio y true si se a efectuado correctamente la atencion
      */
-    /*public boolean atenderPaciente(String sip,double temperatura,double ppm,double tensionSistolica,double tensionDiastolica){
+   /* public boolean atenderPaciente(String sip,double temperatura,double ppm,double tensionSistolica,double tensionDiastolica){
         Atencion atencion = buscarAtencionPacienteNoAtendido(sip);
         if (atencion == null)
             return false;
@@ -216,9 +217,4 @@ public class CentroMedico {
                 "atenciones=" + Arrays.toString(atenciones) +
                 '}';
     }
-
-    public boolean atenderPaciente(String sip, double temperatura, double ppm, double tensionSistolica, double tensionDiastolica) {
-        return false;
-    }
-
 }

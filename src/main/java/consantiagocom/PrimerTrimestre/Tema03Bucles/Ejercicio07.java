@@ -8,7 +8,7 @@ public class Ejercicio07 {
 
         double base;
         int exponente;
-        boolean exponenteNegativo = false;
+        boolean potenciaNegativo = false;
         double potencia = 1;
 
         System.out.println("Indica la base");
@@ -16,5 +16,17 @@ public class Ejercicio07 {
         System.out.print("Indica el exponente: ");
         exponente = scanner.nextInt();
         scanner.close();
+
+        if (exponente < 0){
+            potenciaNegativo = true;
+            exponente = exponente * (-1);
+        }
+        for(int i = 1; i <= exponente; i++) {
+            potencia = potencia * base;
+        }
+        if(potenciaNegativo) {
+            potencia = 1 / potencia;
+        }
+        System.out.println("El resultado de " + base + " elevado a " + exponente + " es " + potencia);
     }
 }
