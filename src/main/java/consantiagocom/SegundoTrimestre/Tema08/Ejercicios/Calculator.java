@@ -7,15 +7,15 @@ public class Calculator {
     public static void main(String[] args) {
         JFrame frame = new JFrame("Calculator");
 
-        int width = 500;
-        int height = 500;
+        int width = 400;
+        int height = 400;
         int x,y;
 
         Toolkit tool = Toolkit.getDefaultToolkit();
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
 
-        x = (int)(dimension.width/2f) - Math.round(width/2f);
-        y = (int)(dimension.height/2f) - Math.round(height/2f);
+        x = (int)(dimension.getWidth()/2f) - Math.round(width/2f);
+        y = (int)(dimension.getHeight()/2f) - Math.round(height/2f);
 
         String[] symbol = new String[]
                 {"%" , "CE" , "C" , "x",
