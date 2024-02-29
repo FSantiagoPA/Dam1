@@ -16,7 +16,7 @@ public class Ejercicio01 {
             else if (texto.charAt(i) == ')' || texto.charAt(i)  == '}' || texto.charAt(i) == ']') {
                 if(pila.isEmpty())
                     return false;
-                String aux = pila.pop();
+                Object aux = pila.pop();
 
                 if (texto.charAt(i) == '(' && !aux.equals(")"))
                     return false;

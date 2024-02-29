@@ -26,7 +26,7 @@ public class VersionProfe {
             }else {
                 int indice = simboloCierre.indexOf(c);
                 if (indice >= 0){
-                    String dato = pila.pop();
+                    Object dato = pila.pop();
                     if (dato == null){
                         errores.append("Se ha encontrado un ").append(c).append(" sin apertura");
                         return  false;

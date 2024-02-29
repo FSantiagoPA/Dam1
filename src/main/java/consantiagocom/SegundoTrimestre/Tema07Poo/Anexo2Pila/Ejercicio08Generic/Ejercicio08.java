@@ -1,6 +1,7 @@
-package consantiagocom.SegundoTrimestre.Tema07Poo.Anexo2Pila.Ejercicio08;
+package consantiagocom.SegundoTrimestre.Tema07Poo.Anexo2Pila.Ejercicio08Generic;
 
 public class Ejercicio08<T> {
+
 
     private T[] stack = (T[]) new Object[100];
     private int top = -1;
@@ -12,7 +13,6 @@ public class Ejercicio08<T> {
             stack = resize();
         }
     }
-
 
     public T pop() {
         T value = peek();

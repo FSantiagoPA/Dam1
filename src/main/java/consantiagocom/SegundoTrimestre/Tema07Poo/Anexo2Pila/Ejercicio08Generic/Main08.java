@@ -1,5 +1,5 @@
-package consantiagocom.SegundoTrimestre.Tema07Poo.Anexo2Pila.Ejercicio08;
-import consantiagocom.SegundoTrimestre.Tema07Poo.Anexo2Pila.Ejercicio08.Ejercicio08;
+package consantiagocom.SegundoTrimestre.Tema07Poo.Anexo2Pila.Ejercicio08Generic;
+
 public class Main08 {
     public Main08() {
         Ejercicio08<String> stack = new Ejercicio08<>();

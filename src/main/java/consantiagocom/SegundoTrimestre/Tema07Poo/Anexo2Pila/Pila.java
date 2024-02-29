@@ -1,8 +1,8 @@
 package consantiagocom.SegundoTrimestre.Tema07Poo.Anexo2Pila;
 
 
-public class Pila {
-    private String[] datos;
+public class Pila<T>{
+    private Object[] datos;
     private int tope;
 
     public Pila(int capacidadInicial){
@@ -10,16 +10,17 @@ public class Pila {
         tope = -1;
     }
 
-    public void push(String elemento){
+    public void push(T elemento){
         if (isFull()){
             ampliarArray();
         }
         datos[++tope] = elemento;
     }
 
-    public String pop(){
+    @SuppressWarnings("unchecked")
+    public T  pop(){
         if (!isEmpty()){
-         return datos[tope--];
+         return (T) datos[tope--];
         }
         return null;
     }
@@ -28,9 +29,10 @@ public class Pila {
         return tope + 1;
     }
 
-    public String top(){
+    @SuppressWarnings("unchecked")
+    public T top(){
         if (!isEmpty())
-            return datos[tope];
+            return (T) datos[tope];
         return null; // devuelve null si la pila esta vacia.
     }
 
@@ -43,13 +45,10 @@ public class Pila {
     }
 
     private void ampliarArray(){
-        String[] nuevoArray = new String[datos.length * 2];
+        Object[] nuevoArray = new Object[datos.length * 2];
         for (int i = 0; i < datos.length; i++) {
             nuevoArray[i]=datos[i];
         }
         datos = nuevoArray;
     }
-
-
-
 }
