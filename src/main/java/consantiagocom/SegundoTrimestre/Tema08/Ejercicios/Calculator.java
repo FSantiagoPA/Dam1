@@ -7,17 +7,17 @@ public class Calculator {
     public static void main(String[] args) {
         JFrame frame = new JFrame("Calculator");
 
-        int width = 400;
-        int height = 400;
+        int width = 500;
+        int height = 500;
         int x,y;
 
-        Toolkit herramienta = Toolkit.getDefaultToolkit();
-        Dimension dimension =Toolkit.getDefaultToolkit().getScreenSize();
+        Toolkit tool = Toolkit.getDefaultToolkit();
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
 
         x = (int)(dimension.width/2f) - Math.round(width/2f);
         y = (int)(dimension.height/2f) - Math.round(height/2f);
 
-        String [] simbolos = new String[]
+        String[] symbol = new String[]
                 {"%" , "CE" , "C" , "x",
                 "1/x" , "x^2" , "sdr" , "/",
                 "7" , "8" , "9" , "*",
@@ -28,8 +28,8 @@ public class Calculator {
         JPanel panel = new JPanel();
         GridLayout gridLayout = new GridLayout(6,4);
         panel.setLayout(gridLayout);
-        for (String simbolo : simbolos) {
-            JButton button = new JButton(simbolo);
+        for (String symbols : symbol) {
+            JButton button = new JButton(symbols);
             button.setBackground(Color.darkGray);
             button.setForeground(Color.white);
             panel.add(button);
