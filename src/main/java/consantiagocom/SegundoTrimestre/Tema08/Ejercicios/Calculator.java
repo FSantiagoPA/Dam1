@@ -30,8 +30,8 @@ public class Calculator {
         panel.setLayout(gridLayout);
         for (String symbols : symbol) {
             JButton button = new JButton(symbols);
-            button.setBackground(Color.darkGray);
-            button.setForeground(Color.white);
+            button.setBackground(Color.DARK_GRAY);
+            button.setForeground(Color.WHITE);
             panel.add(button);
         }
         frame.setContentPane(panel);
