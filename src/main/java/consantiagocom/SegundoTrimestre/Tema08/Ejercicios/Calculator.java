@@ -1,43 +1,58 @@
 package consantiagocom.SegundoTrimestre.Tema08.Ejercicios;
 
-import javax.swing.*;
-import java.awt.*;
-
 public class Calculator {
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("Calculator");
-
-        int width = 400;
-        int height = 400;
-        int x,y;
-
-        Toolkit tool = Toolkit.getDefaultToolkit();
-        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
-
-        x = (int)(dimension.getWidth()/2f) - Math.round(width/2f);
-        y = (int)(dimension.getHeight()/2f) - Math.round(height/2f);
-
-        String[] symbol = new String[]
-                {"%" , "CE" , "C" , "x",
-                "1/x" , "x^2" , "sdr" , "/",
-                "7" , "8" , "9" , "*",
-                "4" , "5" , "6" , "-",
-                "1" , "2" , "3" , "+",
-                "+/-" , "0" , "." , "="};
-
-        JPanel panel = new JPanel();
-        GridLayout gridLayout = new GridLayout(6,4);
-        panel.setLayout(gridLayout);
-        for (String symbols : symbol) {
-            JButton button = new JButton(symbols);
-            button.setBackground(Color.DARK_GRAY);
-            button.setForeground(Color.WHITE);
-            panel.add(button);
+    public enum Estado{
+        OPERADOR_ENTERO, PUNTO, OPERANDO_DECIMAL, OPERADOR, ERROR
+    }
+    private StringBuilder op1;
+    private StringBuilder op2;
+    private  StringBuilder operandoActual;
+    private String operador;
+    private Estado estadoActual;
+    private Estado[][] diagramaDeEstado;
+    public Calculator() {
+        op1 = new StringBuilder();
+        op2 = new StringBuilder();
+        operandoActual = op1;
+        estadoActual = Estado.OPERADOR_ENTERO;
+        diagramaDeEstado = new Estado[][]{
+                {Estado.OPERADOR_ENTERO, Estado.PUNTO, Estado.OPERADOR, Estado.ERROR},
+                {Estado.OPERANDO_DECIMAL, Estado.ERROR},
+                {Estado.OPERANDO_DECIMAL, Estado.OPERADOR, Estado.ERROR},
+                {Estado.OPERADOR_ENTERO, Estado.ERROR},
+                {Estado.ERROR}
+        };
+    }
+    public void addDigit(String digit){
+        if (estadoActual == Estado.ERROR)
+            return;
+        Estado siguienteEstado = Estado.OPERADOR_ENTERO;
+        if (estadoActual == Estado.OPERANDO_DECIMAL || estadoActual == Estado.PUNTO)
+            siguienteEstado = Estado.OPERANDO_DECIMAL;
+        if (!esTrancicionValida(siguienteEstado)){
+            error();
+            return;
         }
-        frame.setContentPane(panel);
-        frame.setBounds(x,y,width,height);
-        frame.setVisible(true);
-        frame.pack();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        if (digit == null || digit.length() > 1 || !Character.isDigit(digit.charAt(0))){
+            error();
+            return;
+        }
+
+        operandoActual.append(digit);
+        estadoActual = siguienteEstado;
+
+    }
+
+    private void error(){
+        estadoActual = Estado.ERROR;
+    }
+
+    private boolean esTrancicionValida(Estado siguienteEstado){
+        Estado[] estadosTransitables = diagramaDeEstado[estadoActual.ordinal()];
+        for (Estado estadosTransitable : estadosTransitables) {
+            if (estadosTransitable == siguienteEstado)
+                return true;
+        }
+        return false;
     }
 }
