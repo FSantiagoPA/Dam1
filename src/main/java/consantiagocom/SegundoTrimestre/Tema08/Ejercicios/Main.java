@@ -1,4 +1,4 @@
-package consantiagocom.SegundoTrimestre.Tema08.Ejercicios;
+/*package consantiagocom.SegundoTrimestre.Tema08.Ejercicios;
 
 import javax.swing.*;
 import java.awt.*;
@@ -70,5 +70,5 @@ public class Main {
 
 
             }
-}
+}*/
 
