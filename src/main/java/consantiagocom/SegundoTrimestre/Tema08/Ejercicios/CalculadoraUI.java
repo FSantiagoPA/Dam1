@@ -1,7 +1,7 @@
-/*
-package com.germangascon.calculadora;
 
-import com.germangascon.libs.LibUI;
+package consantiagocom.SegundoTrimestre.Tema08.Ejercicios;
+
+import consantiagocom.SegundoTrimestre.Tema08.LibUI.LibUI;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -9,15 +9,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-*/
-/**
- * CalculadoraUI
- * License: 🅮 Public Domain
- * Calculadora
- * @author Germán Gascón <ggascon@gmail.com>
- * @version 0.1, 2024-02-29
- * @since 0.1, 2024-02-29
- **//*
+
+
 
 public class CalculadoraUI {
     public CalculadoraUI(int width, int height) {
@@ -29,7 +22,7 @@ public class CalculadoraUI {
                 {new Boton("0", Boton.Accion.DIGITO), new Boton(".", Boton.Accion.PUNTO), new Boton("AC", Boton.Accion.AC), new Boton("=", Boton.Accion.IGUAL)},
         };
 
-        CalculadoraController calculadoraController = new CalculadoraController();
+
 
         JButton[] buttons = new JButton[textoBotones.length * textoBotones[0].length];
         JFrame ventana = new JFrame("Calculadora");
@@ -51,6 +44,8 @@ public class CalculadoraUI {
         display.setBorder(new EmptyBorder(10, 10, 10, 10));
         panelDisplay.add(display);
         panelPrincipal.add(panelDisplay);
+
+        CalculadoraController calculadoraController = new CalculadoraController(display);
 
         // Panel botones
         JPanel panelBotones = new JPanel();
@@ -88,4 +83,4 @@ public class CalculadoraUI {
         // ventana.pack();
     }
 }
-*/
+

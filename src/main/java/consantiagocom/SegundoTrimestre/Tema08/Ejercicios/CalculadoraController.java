@@ -1,35 +1,28 @@
-/*
-package com.germangascon.calculadora;
+
+package consantiagocom.SegundoTrimestre.Tema08.Ejercicios;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-*/
-/**
- * CalculadoraController
- * License: 🅮 Public Domain
- * Calculadora
- * @author Germán Gascón <ggascon@gmail.com>
- * @version 0.1, 2024-03-01
- * @since 0.1, 2024-03-01
- **//*
 
 public class CalculadoraController {
     private final Calculadora calculadora;
+    private final JLabel pantalla;
     private final ActionListener actionDigito;
     // private final ActionListener actionPunto;
     private final ActionListener actionOperador;
-    */
-/*
-    private final ActionListener actionIgual;
+
+
+    /*private final ActionListener actionIgual;
     private final ActionListener actionON;
     private final ActionListener actionOFF;
     private final ActionListener actionAC;
+    */
 
-     *//*
 
-    public CalculadoraController() {
+    public CalculadoraController(JLabel pantalla) {
+        this.pantalla = pantalla;
         calculadora = new Calculadora();
         actionDigito = new ActionListener() {
             @Override
@@ -58,5 +51,6 @@ public class CalculadoraController {
     public ActionListener getActionDigito() {
         return actionDigito;
     }
+
 }
-*/
+

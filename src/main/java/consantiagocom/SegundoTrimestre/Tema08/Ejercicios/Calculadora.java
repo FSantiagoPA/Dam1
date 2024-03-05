@@ -1,5 +1,5 @@
-/*
-package com.germangascon.calculadora;
+
+package consantiagocom.SegundoTrimestre.Tema08.Ejercicios;
 
 public class Calculadora {
     public enum Estado {
@@ -63,26 +63,3 @@ public class Calculadora {
         return false;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-*/

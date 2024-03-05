@@ -1,7 +1,7 @@
-/*
-package com.germangascon.calculadora;
 
-*/
+package consantiagocom.SegundoTrimestre.Tema08.Ejercicios;
+
+
 /**
  * Boton
  * License: 🅮 Public Domain
@@ -9,7 +9,7 @@ package com.germangascon.calculadora;
  * @author Germán Gascón <ggascon@gmail.com>
  * @version 0.1, 2024-03-01
  * @since 0.1, 2024-03-01
- **//*
+ **/
 
 public class Boton {
     public enum Accion {
@@ -31,4 +31,4 @@ public class Boton {
         return texto;
     }
 }
-*/
+
