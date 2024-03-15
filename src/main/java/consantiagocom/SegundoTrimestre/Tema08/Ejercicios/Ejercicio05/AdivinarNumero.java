@@ -18,13 +18,13 @@ public class AdivinarNumero {
 
     public int intentoAdivinar(int guess) {
         if (guess == numAdivinar) {
-            return 0; // Wins the game!
+            return 0; // Ganas
         } else {
             numIntentos--;
             if (numIntentos == 0) {
-                return -1; // Loses the game!
+                return -1; // Pierdes
             } else {
-                return 1; // Game continues
+                return 1; // El juego continua
             }
         }
     }
