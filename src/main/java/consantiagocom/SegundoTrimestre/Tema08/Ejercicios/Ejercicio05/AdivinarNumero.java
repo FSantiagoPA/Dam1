@@ -3,8 +3,8 @@ package consantiagocom.SegundoTrimestre.Tema08.Ejercicios.Ejercicio05;
 import java.util.Random;
 
 public class AdivinarNumero {
-    private static final int MAX_ATTEMPTS = 5;
-    public int numIntentos = MAX_ATTEMPTS;
+    private static final int MAX_INTENTOS = 5;
+    public int numIntentos = MAX_INTENTOS;
     public int numAdivinar;
 
     public AdivinarNumero() {
@@ -12,7 +12,7 @@ public class AdivinarNumero {
     }
 
     public void reinicar() {
-        numIntentos = MAX_ATTEMPTS;
+        numIntentos = MAX_INTENTOS;
         numAdivinar = new Random().nextInt(101);
     }
 

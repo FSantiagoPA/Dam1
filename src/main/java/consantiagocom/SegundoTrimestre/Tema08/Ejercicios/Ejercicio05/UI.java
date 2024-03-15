@@ -38,22 +38,22 @@ public class UI {
                 int result = juego.intentoAdivinar(guess);
                 switch (result) {
                     case -1:
-                        showMessage("Mala suerte haz perdido, el numero correcto es: " + juego.numAdivinar);
-                        if (promptNewGame()) {
+                        mostrarMensaje("Mala suerte haz perdido, el numero correcto es: " + juego.numAdivinar);
+                        if (avisoNuevoJuego()) {
                             juego.reinicar();
-                            updateAttempts();
+                            acutalizarIntentos();
                         } else {
                             System.exit(0);
                         }
                         break;
                     case 1:
-                        updateAttempts();
+                        acutalizarIntentos();
                         break;
                     case 0:
-                        showMessage("Felicidades, ganaste");
-                        if (promptNewGame()) {
+                        mostrarMensaje("Felicidades, ganaste");
+                        if (avisoNuevoJuego()) {
                             juego.reinicar();
-                            updateAttempts();
+                            acutalizarIntentos();
                         } else {
                             System.exit(0);
                         }
@@ -65,15 +65,15 @@ public class UI {
         frame.setVisible(true);
     }
 
-    private void updateAttempts() {
+    private void acutalizarIntentos() {
         numIntentos.setText("Intentos restantes: " + juego.numIntentos);
     }
 
-    private void showMessage(String message) {
+    private void mostrarMensaje(String message) {
         JOptionPane.showMessageDialog(frame, message);
     }
 
-    private boolean promptNewGame() {
+    private boolean avisoNuevoJuego() {
         int response = JOptionPane.showConfirmDialog(frame, "¿Te gustaría volver a jugar?", "Nuevo juego",
                 JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         return response == JOptionPane.YES_OPTION;
