@@ -1,4 +1,4 @@
-package consantiagocom.SegundoTrimestre.Tema08.Ejercicios.Ejercicio4;
+package consantiagocom.SegundoTrimestre.Tema08.Ejercicios.Ejercicio04;
 
 import javax.swing.*;
 import java.awt.*;
