@@ -16,8 +16,8 @@ public class AdivinarNumero {
         numAdivinar = new Random().nextInt(101);
     }
 
-    public int intentoAdivinar(int guess) {
-        if (guess == numAdivinar) {
+    public int intentoAdivinar(int jugador) {
+        if (jugador == numAdivinar) {
             return 0; // Ganas
         } else {
             numIntentos--;
