@@ -1,6 +1,6 @@
 package consantiagocom.SegundoTrimestre.Tema07Poo.Anexo2Pila.Ejercicio08Generic;
 
-public class Ejercicio08<T> {
+public class Pila<T> {
 
 
     private T[] stack = (T[]) new Object[100];

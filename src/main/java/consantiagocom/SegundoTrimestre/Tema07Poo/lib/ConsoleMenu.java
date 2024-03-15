@@ -1,4 +1,4 @@
-package consantiagocom.SegundoTrimestre.Tema07Poo.Lib;
+package consantiagocom.SegundoTrimestre.Tema07Poo.lib;
 
 import java.util.Scanner;
 

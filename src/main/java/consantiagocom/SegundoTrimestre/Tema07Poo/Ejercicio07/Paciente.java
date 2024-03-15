@@ -1,45 +1,26 @@
 package consantiagocom.SegundoTrimestre.Tema07Poo.Ejercicio07;
 
-import java.util.Date;
-import java.util.Objects;
-
 public class Paciente {
-    public enum Genero{
-        HOMBRE,MUJER,OTRO;
-
-        @Override
-        public String toString() {
-            switch (this) {
-                case HOMBRE:
-                    return "Hombre";
-                case MUJER:
-                    return "Mujer";
-                case OTRO:
-                    return "Otro";
-            }
-            return super.toString();
-        }
-    };
-    private final String sip;
+    public enum Sexo {
+        M, V
+    }
+    private final long sip;
     private final String nombre;
-    private final Genero genero;
-    private final Date fechaNacimiento;
+    private final String apellido1;
+    private final String apellido2;
+    private final Sexo sexo;
+    private final int edad;
 
-    public Paciente(String sip, String nombre, Genero genero, Date fechaNacimiento) {
+    public Paciente(long sip, String nombre, String apellido1, String apellido2, Sexo sexo, int edad) {
         this.sip = sip;
         this.nombre = nombre;
-        this.genero = genero;
-        this.fechaNacimiento = fechaNacimiento;
-    }
-    public Paciente(Paciente paciente){
-        this.sip = new String(paciente.sip);
-        this.nombre = new String(paciente.nombre);
-        this.genero = paciente.genero;
-        this.fechaNacimiento = new Date(paciente.fechaNacimiento.getTime());
-
+        this.apellido1 = apellido1;
+        this.apellido2 = apellido2;
+        this.sexo = sexo;
+        this.edad = edad;
     }
 
-    public String getSip() {
+    public long getSip() {
         return sip;
     }
 
@@ -47,43 +28,30 @@ public class Paciente {
         return nombre;
     }
 
-    public Genero getGenero() {
-        return genero;
+    public String getApellido1() {
+        return apellido1;
     }
 
-    public Date getFechaNacimiento() {
-        return fechaNacimiento;
+    public String getApellido2() {
+        return apellido2;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Paciente paciente = (Paciente) o;
-
-        if (!sip.equals(paciente.sip)) return false;
-        if (!Objects.equals(nombre, paciente.nombre)) return false;
-        if (genero != paciente.genero) return false;
-        return Objects.equals(fechaNacimiento, paciente.fechaNacimiento);
+    public Sexo getSexo() {
+        return sexo;
     }
 
-    @Override
-    public int hashCode() {
-        int result = sip.hashCode();
-        result = 31 * result + (nombre != null ? nombre.hashCode() : 0);
-        result = 31 * result + (genero != null ? genero.hashCode() : 0);
-        result = 31 * result + (fechaNacimiento != null ? fechaNacimiento.hashCode() : 0);
-        return result;
+    public int getEdad() {
+        return edad;
     }
 
     @Override
     public String toString() {
-        return "Paciente{" +
-                "sip='" + sip + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", genero=" + genero +
-                ", fechaNacimiento=" + fechaNacimiento +
-                '}';
+        return String.format("%10d", sip) + "\t" +
+                String.format("%-12s", nombre ) +
+                String.format("%-12s", apellido1) +
+                String.format("%-12s", apellido2) +
+                String.format("%-4s", sexo) +
+                String.format("%4d", edad);
+
     }
 }

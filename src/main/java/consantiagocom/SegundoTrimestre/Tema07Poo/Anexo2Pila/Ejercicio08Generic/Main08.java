@@ -2,7 +2,7 @@ package consantiagocom.SegundoTrimestre.Tema07Poo.Anexo2Pila.Ejercicio08Generic;
 
 public class Main08 {
     public Main08() {
-        Ejercicio08<String> stack = new Ejercicio08<>();
+        Pila<String> stack = new Pila<>();
         stack.push("Hola");
         stack.push("Mundo");
         stack.push("!");
@@ -10,7 +10,7 @@ public class Main08 {
         System.out.println(stack.pop());
         System.out.println(stack.pop());
 
-        Ejercicio08<Integer> stack2 = new Ejercicio08<>();
+        Pila<Integer> stack2 = new Pila<>();
         stack2.push(1);
         stack2.push(2);
         stack2.push(3);
@@ -20,7 +20,7 @@ public class Main08 {
         System.out.println(stack2.pop());
         System.out.println(stack2.pop());
 
-        Ejercicio08<Double> stack3 = new Ejercicio08<>();
+        Pila<Double> stack3 = new Pila<>();
         stack3.push(1.1);
         stack3.push(2.2);
         stack3.push(3.3);
@@ -30,7 +30,7 @@ public class Main08 {
         System.out.println(stack3.pop());
         System.out.println(stack3.pop());
 
-        Ejercicio08<Boolean> stack4 = new Ejercicio08<>();
+        Pila<Boolean> stack4 = new Pila<>();
         for (int i = 0; i < 100; i++) {
             stack4.push(true);
         }

@@ -1,3 +1,4 @@
+/*
 package consantiagocom.PrimerTrimestre.Tema05Metodos;
 
 import java.util.Scanner;
@@ -29,3 +30,4 @@ public class Ejercicio03 {
         return b;
     }
 }
+*/
