@@ -1,4 +1,3 @@
-/*
 package consantiagocom.PrimerTrimestre.Tema05Metodos;
 
 import java.util.Scanner;
@@ -18,16 +17,10 @@ public class Ejercicio03 {
         y = scanner.nextInt();
 
         //llamamos el metodo
-        System.out.println(maximo(x,y));
+        System.out.println("El numero mayor entre los 2 es: " + maximo(x,y));
     }
-    public static boolean maximo(int x, int y){
-        boolean b = x > y;
-        if (b){
-            System.out.println("Es mayor");
-        }else{
-            System.out.println("Es menor");
-        }
-        return b;
+    public static int maximo(int n1, int n2){
+        return n1 > n2 ? n1 : n2;
     }
 }
-*/
+
