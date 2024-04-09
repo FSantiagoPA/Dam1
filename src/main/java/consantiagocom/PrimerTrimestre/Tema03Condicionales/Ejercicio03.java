@@ -5,17 +5,22 @@ import java.util.Scanner;
 public class Ejercicio03 {
     public static void main(String[] args) {
 
-        Scanner s = new Scanner(System.in);
+        //We initialize the scanner
+        Scanner scanner = new Scanner(System.in);
 
+        //We assign the variables
         int edad;
 
-        System.out.println("Ingresa una edad");
-        edad = s.nextInt();
+        //We ask for the data
+        System.out.println("Give me your age, Please");
+        edad = scanner.nextInt();
+        scanner.close();
 
+        //We do the condition
         if (edad >= 18){
-            System.out.println("Es mayor de edad");
-        }else{
-            System.out.println("Es menor de edad");
+            System.out.println("The person is of legal age");
+        }else {
+            System.out.println("The person is a minor");
         }
     }
 }

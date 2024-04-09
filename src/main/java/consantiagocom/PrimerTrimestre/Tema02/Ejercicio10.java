@@ -1,21 +1,25 @@
 package consantiagocom.PrimerTrimestre.Tema02;
 
 public class Ejercicio10 {
-    public enum MesesDelAnio{
-        ENERO,FEBRERO,MARZO,ABRIL,MAYO,JUNIO,JULIO,AGOSTO,SEPTIEMBRE,OCTUBRE,NOVIEMBRE,DICIEMBRE
+    public enum MonthsOfYear {
+        JANUARY, FEBRUARY, MARCH, APRIL, MAY, JUNE, JULY,
+        AUGUST, SEPTEMBER, OCTOBER, NOVEMBER,DECEMBER
+    }
+    public enum MusicalNotes{
+        DO,RE,MI,FA,SOL,LA,SI,
+        B_FLAT,B_DOUBLE_FLAT,E_NATURAL
+    }
+    public enum StudentGrades{
+        EXCELLENT,OUTSTADING,PASS,FAIL
     }
 
-    public enum NotasMusicales{
-        DO,RE,MI,FA,SOL,LA,SI
-    }
-    public enum NotasAlumnos{
-        SUSPENDIDO,SUFICIENTE,BIEN,EXELENTE,SOBRESALIENTE
-    }
     public static void main(String[] args) {
+        MonthsOfYear monthsOfYear = MonthsOfYear.JANUARY;
+        MusicalNotes musicalNotes = MusicalNotes.DO;
+        StudentGrades studentGrades = StudentGrades.EXCELLENT;
 
-        System.out.println("Mes del año: " + MesesDelAnio.AGOSTO);
-        System.out.println("Nota musicales: " + NotasMusicales.DO);
-        System.out.println("Notas alumnos: " + NotasAlumnos.EXELENTE);
+        System.out.println(monthsOfYear);
+        System.out.println(musicalNotes);
+        System.out.println(studentGrades);
     }
-
 }

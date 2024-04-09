@@ -4,24 +4,26 @@ import java.util.Scanner;
 
 public class Ejercicio02 {
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
+        //We initialize the scanner
+        Scanner scanner = new Scanner(System.in);
 
+        //We assign the variables
         int num1;
         int num2;
 
-        System.out.println("Introduzca el primer numero");
-        num1 = s.nextInt();
-        System.out.println("Introduzca un segundo numero");
-        num2 = s.nextInt();
+        //we ask for the data
+        System.out.println("Give me a number");
+        num1 = scanner.nextInt();
+        System.out.println("Give me another number");
+        num2 = scanner.nextInt();
+        scanner.close();
 
-        if (num1 > num2){
-            System.out.println("num1 es mayor que num2 = " + num1);
-        } else if (num1 < num2) {
-            System.out.println("num1 es menor que num1 = " + num1);
-        } else {
-            System.out.println("num1 y num2 son iguales = " + num1);
-        }
-        s.close();
+        //We do the condition
+        if (num1 > num2)
+            System.out.println("The number 1 is higher than number 2");
+        if (num1 < num2)
+            System.out.println("The number 1 is lower than number 2");
+        if (num1 == num2)
+            System.out.println("The 2 number are the same");
     }
-    
 }

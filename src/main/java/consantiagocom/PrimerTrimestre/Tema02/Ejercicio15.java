@@ -4,20 +4,24 @@ import java.util.Scanner;
 
 public class Ejercicio15 {
     public static void main(String[] args) {
+        //We initialize the scanner
+        Scanner scanner = new Scanner(System.in);
+        
+        //We assign the variables
+        double celsius;
 
-        Scanner s = new Scanner(System.in);
+        //We ask for the data
+        System.out.println("Give me temperatures in celsius");
+        celsius = scanner.nextDouble();
+        scanner.close();
 
-        double gradosKelvin = 273.15;
-        double gradosFahrenheit = 33;
+        //Operation
+        double kelvin = 273.15 + celsius;
+        double fahrenheit = celsius * ((double) 9 /5) + 32;
 
-        System.out.println("Ingresa una temperatura en grados centigrados");
-        double celcius = s.nextDouble();
-
-        double convercionKelvin = (celcius * gradosKelvin);
-        double convercionFahreheit = (celcius * gradosFahrenheit);
-
-        System.out.println("Grados celcius: " + celcius + "°");
-        System.out.printf("Grados Kelvin: %.1f° \n",convercionKelvin);
-        System.out.printf("Grados Fahreheit: %.1f° \n",convercionFahreheit);
+        //Print the result
+        System.out.println("Our degrees celcius: " + celsius);
+        System.out.println("Our degrees celcius to kelvin: " + kelvin);
+        System.out.println("Our degrees celcius to fahrenheit: " + fahrenheit);
     }
 }

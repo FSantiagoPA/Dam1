@@ -5,15 +5,24 @@ import java.util.Scanner;
 public class Ejercicio12 {
     public static void main(String[] args) {
 
-        Scanner s = new Scanner(System.in);
+        //We initialize the scanner
+        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Ingresa el dividiendo");
-        double dividendo = s.nextDouble();
-        System.out.println("Ingresa el divisor");
-        double divisor = s.nextDouble();
+        //We assign  variables
+        double dividend;
+        double divisor;
 
-        double resultado = dividendo / divisor;
+        //We ask for the data
+        System.out.println("Give me one dividend, Please");
+        dividend = scanner.nextInt();
+        System.out.println("Give me one divisor, Please");
+        divisor = scanner.nextInt();
+        scanner.close();
 
-        System.out.println("el dividiendo: " + dividendo + " es dividido por divisor " + divisor + " asi que el resultado es = " + resultado);
+        //operation
+        double division = dividend / divisor;
+
+        //Print the result
+        System.out.println("The result of " + dividend + "/" + divisor + " is = " +division);
     }
 }

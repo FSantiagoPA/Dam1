@@ -3,26 +3,49 @@ package consantiagocom.PrimerTrimestre.Tema03Condicionales;
 import java.util.Scanner;
 
 public class Ejercicio05 {
+    public enum Calificacion {
+        INSUFICIENTE,
+        SUFICIENTE,
+        BIEN,
+        NOTABLE,
+        SOBRESALIENTE,
+        ERROR
+    }
     public static void main(String[] args) {
+        Scanner lector = new Scanner(System.in);
+        float notaReal;
+        int notaEntera;
+        Calificacion nota;
+        System.out.print("Escribe la nota obtenida: ");
+        notaReal = Float.parseFloat(lector.nextLine());
+        lector.close();
+        notaEntera = (int) notaReal;
+        switch (notaEntera) {
+            case 0:
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+                nota = Calificacion.INSUFICIENTE;
+                break;
+            case 5:
+                nota = Calificacion.SUFICIENTE;
+                break;
+            case 6:
+                nota = Calificacion.BIEN;
+                break;
+            case 7:
+            case 8:
+                nota = Calificacion.NOTABLE;
+                break;
+            case 9:
+            case 10:
+                nota = Calificacion.SOBRESALIENTE;
+                break;
+            default:
+                nota = Calificacion.ERROR;
 
-        Scanner s = new Scanner(System.in);
-        int calificacion;
-
-        System.out.println("Ingresa una nota a evaluar!");
-        calificacion = s.nextInt();
-        
-        if (calificacion >= 0 && calificacion <= 5){
-            System.out.println("Insuficiente");
-        } else if (calificacion >= 5 && calificacion <= 6) {
-            System.out.println("Suficiente");
-        } else if (calificacion >= 6 && calificacion <= 7) {
-            System.out.println("Bien");
-        } else if (calificacion >= 7 && calificacion <= 9) {
-            System.out.println("Notanble");
-        } else if (calificacion >= 9 && calificacion <= 10) {
-            System.out.println("Sobresaliente");
-        } else if (calificacion != 10) {
-            System.err.println("ERROR");
         }
+        System.out.println(notaReal + " es un " + nota + " (" + notaEntera + ")");
     }
 }

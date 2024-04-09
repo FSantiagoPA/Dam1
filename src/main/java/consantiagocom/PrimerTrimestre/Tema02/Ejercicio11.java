@@ -4,16 +4,24 @@ import java.util.Scanner;
 
 public class Ejercicio11 {
     public static void main(String[] args) {
+        //We initialize the scanner
+        Scanner scanner = new Scanner(System.in);
 
-        Scanner s = new Scanner(System.in);
+        //We assign  variables
+        int minuend;
+        int subtrahend;
 
-        System.out.println("Ingresa el minuendo");
-        int minuendo = s.nextInt();
-        System.out.println("Ingresa el sustraendo");
-        int sustraendo = s.nextInt();
+        //We ask for the data
+        System.out.println("Give me one minuend, Please");
+        minuend = scanner.nextInt();
+        System.out.println("Give me one subtrahend, Please");
+        subtrahend = scanner.nextInt();
+        scanner.close();
 
-        int resultado = minuendo - sustraendo;
+        //operation
+        int subtraction = minuend - subtrahend;
 
-        System.out.println("el minuendo: " + minuendo + " es restado por sustraendo " + sustraendo + " asi que el resultado es = " + resultado);
+        //Print the result
+        System.out.println("The result of " + minuend + "-" + subtrahend + " is = " +subtraction);
     }
 }

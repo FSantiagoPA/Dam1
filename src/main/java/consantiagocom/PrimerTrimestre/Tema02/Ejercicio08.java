@@ -5,15 +5,25 @@ import java.util.Scanner;
 public class Ejercicio08 {
     public static void main(String[] args) {
 
+        //We initialize the scanner
         Scanner scanner = new Scanner(System.in);
 
-        int edad,aniosVividos;
+        //We assign variables
+        int age;
+        int daysOfYear = 365;
 
-        System.out.println("Ingresa una edad");
-        edad = scanner.nextInt();
-
-        aniosVividos = edad * 365;
-        System.out.println("con " + edad + " anios" + " haz vivido un total de " + aniosVividos + " dias");
+        //we ask for the data
+        System.out.println("Give me your ages, Please");
+        age = scanner.nextInt();
         scanner.close();
+
+        //Operation
+        int total = age * daysOfYear;
+
+        //Print the result
+
+        System.out.println("A person with " + age + " years " + "have " + total
+                + " days of life");
+
     }
 }

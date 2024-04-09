@@ -4,17 +4,24 @@ import java.util.Scanner;
 
 public class Ejercicio14 {
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
+        //We initialize the scanner
+        Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Ingresa el radio del la circuferencia: ");
-        double radio = s.nextDouble();
+        //We assign variables
+        float radius;
+        final float PI = (float) Math.PI;
 
-        double longitud = 2 * Math.PI * radio;
-        double area = Math.PI * Math.pow(radio,2);
+        //we ask for the data
+        System.out.println("Give me the radius of the circle");
+        radius = scanner.nextFloat();
+        scanner.close();
 
-        System.out.println();
-        System.out.println("El radio de la circuferencia es: " + radio);
-        System.out.printf("La longitud de la circuferencia es: %.2f \n",longitud);
-        System.out.printf("El area del circulo es: %.2f ",area);
+        //Operations
+        float area = (float) (PI * Math.pow(radius,2));
+        float length = (float) (2*PI*radius);
+
+        //Print the result
+        System.out.println("Area of the circle is = " + area + " cm^2");
+        System.out.println("Length of the circle is = " + length + " cm");
     }
 }

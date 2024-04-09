@@ -1,4 +1,4 @@
-package consantiagocom.EjercicioNavidad;
+package consantiagocom.PrimerTrimestre.EjercicioNavidad;
 
 public class Ejercicio03 {
     public static void main(String[] args) {

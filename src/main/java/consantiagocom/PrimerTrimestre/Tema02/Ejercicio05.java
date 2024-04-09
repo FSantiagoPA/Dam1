@@ -1,26 +1,19 @@
 package consantiagocom.PrimerTrimestre.Tema02;
 
-import java.util.Map;
-import java.util.Scanner;
-
 public class Ejercicio05 {
-    public static void main(String[] args) {
+    public static <PI> void main(String[] args) {
+        //We assign variables
+        int height = 2;
+        int width = 4;
 
-        Scanner scanner = new Scanner(System.in);
 
-        int altura,ancho,perimetro,area;
+        //Operations
+        int area = width*height;
+        int perimeter = height + height + width + width;
 
-        System.out.println("Ingresa la altura del rectangulo");
-        altura = scanner.nextInt();
-        System.out.println("Ingresa el ancho del rectangulo");
-        ancho = scanner.nextInt();
+        //print the result
+        System.out.println("Area of a rectangle: " + area + "cm^2");
+        System.out.println("Perimeter of a rectangle: " + perimeter + "cm");
 
-        perimetro = (int) Math.pow(altura,2) + (int)Math.pow(ancho,2);
-        area = altura * ancho;
-
-        System.out.println("El alto del rectangulo es: " +altura + "cm");
-        System.out.println("El ancho del rectangulo es: " +ancho + "cm");
-        System.out.println("El perimetro es: "+ perimetro + "cm");
-        System.out.println("El area es: " + area + "cm");
     }
 }

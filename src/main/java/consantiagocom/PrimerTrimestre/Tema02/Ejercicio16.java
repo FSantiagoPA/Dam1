@@ -4,18 +4,24 @@ import java.util.Scanner;
 
 public class Ejercicio16 {
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
+        //We initialize the scanner
+        Scanner scanner = new Scanner(System.in);
 
-        double libras = 0.85;
-        double dolar = 1.08;
-        System.out.println("Ingrese la cantidad de euros que quiere convertir!");
-        double euros = s.nextDouble();
+        //We assign the variables
+        double euro;
 
-        double conversionLibras = (euros * libras);
-        double conversionDolar = (euros * dolar);
+        //We ask for the data
+        System.out.println("Give me an Euro");
+        euro = scanner.nextDouble();
+        scanner.close();
 
-        System.out.println("Euro a cambiar: " + euros + "â‚¬");
-        System.out.printf("Euro a libras: %.2fÂ£\n",conversionLibras);
-        System.out.printf("Euro a dolar: %.2f$\n",conversionDolar);
+        //Operation
+        double dollar = euro * 1.08;
+        double pound  = euro * 0.86;
+
+        //Print the result
+        System.out.println("Our euro: "+ euro + "€");
+        System.out.println("Our euro to dollar: " + dollar + "$");
+        System.out.println("Our euro to pound: " + pound + "£");
     }
 }

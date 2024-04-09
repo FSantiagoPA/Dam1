@@ -4,24 +4,26 @@ import java.util.Scanner;
 
 public class Ejercicio13 {
     public static void main(String[] args) {
+        //We initialize the scanner
+        Scanner scanner= new Scanner(System.in);
 
-        Scanner s = new Scanner(System.in);
+        //We assign variables
+        int sec;
 
-        int dias = 1;
-        int hora = 1;
-        int minutos = 1;
-        int ss = 60;
-        System.out.println("Ingrese una cantidad de segundos");
-        int segundos = s.nextInt();
+        //We ask for the data
+        System.out.println("Give me a number of seconds");
+        sec = scanner.nextInt();
+        scanner.close();
 
-        int resultadoMinutos = (segundos * minutos)/ss;
-        int resultadoHoras = (segundos * minutos) / ss /60;
-        int resultadoDias = (segundos * dias)/86400;
+        //Operations
+        int minute = sec/60;
+        int hour = (int) (sec/3.600);
+        int days = (int) (sec/86.400);
 
-        System.out.println(segundos + " segundos");
-        System.out.println(segundos + " segundos " + " equivalen a " + resultadoMinutos + " minutos");
-        System.out.println(segundos + " segundos " + " equivalen a " + resultadoHoras + " hora");
-        System.out.println(segundos + " segundos " + " equivalen a " + resultadoDias + " dias");
-
+        //Print the result
+        System.out.println(sec + " seconds");
+        System.out.println("The converse of sec to min is: " + minute + " minute");
+        System.out.println("The converse of sec to hours is: " + hour + " hour");
+        System.out.println("The converse of sec to days is: " + days + " days");
     }
 }
