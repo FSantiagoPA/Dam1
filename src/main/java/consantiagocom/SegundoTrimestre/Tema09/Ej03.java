@@ -28,7 +28,7 @@ public class Ej03 {
             }
         }
         //Si hay números en ArrayList, busca el más grande
-        if (!numbers.isEmpty()) {
+        if (numbers.size() > 0) {  // o se puede expresar de esta forma tambien !numbers.isEmpty()
             int max = numbers.get(0);
             for (int i : numbers){
                 if (i > max)

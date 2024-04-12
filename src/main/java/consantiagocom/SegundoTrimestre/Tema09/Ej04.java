@@ -21,7 +21,6 @@ public class Ej04 {
 
     }
 
-
     /**
      * Lee números del usuario y los almacena en la array
      * Si el usuario no introduce un número, lanzará y gestionará una InputMismatchException
