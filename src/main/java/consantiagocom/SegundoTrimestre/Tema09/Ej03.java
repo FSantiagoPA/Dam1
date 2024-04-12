@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Ej3 {
+public class Ej03 {
     private static final Scanner lector = new Scanner(System.in);
 
-    public Ej3(){
+    public Ej03(){
         //declaración de variables
         //Creando ArrayList debido a que no sabemos cuántos números se introducirán
 

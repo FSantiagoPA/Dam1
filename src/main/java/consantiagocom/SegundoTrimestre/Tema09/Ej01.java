@@ -1,15 +1,14 @@
 package consantiagocom.SegundoTrimestre.Tema09;
 
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Ej1 {
+public class Ej01 {
 
     // Escáner estático para evitar crear uno nuevo cada vez que necesitemos leer un número
     private static final Scanner scanner = new Scanner(System.in);
 
-    public Ej1 () {
+    public Ej01() {
         solicitarNumero();
     }
     public void solicitarNumero() {

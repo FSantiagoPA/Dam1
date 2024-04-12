@@ -1,13 +1,12 @@
 package consantiagocom.SegundoTrimestre.Tema09;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Ej2 {
+public class Ej02 {
 
     // Escáner estático para evitar crear uno nuevo cada vez que necesitemos leer un número
     private static final Scanner scanner = new Scanner(System.in);
-    public Ej2() {
+    public Ej02() {
         soliNumbers();
     }
     public void soliNumbers() {

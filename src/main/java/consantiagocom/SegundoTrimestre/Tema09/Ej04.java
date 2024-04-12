@@ -3,13 +3,13 @@ package consantiagocom.SegundoTrimestre.Tema09;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Ej4 {
+public class Ej04 {
 
     // Escáner estático para evitar crear uno nuevo cada vez que necesitemos leer un número
     private static final Scanner lector = new Scanner(System.in);
 
     // Constructor
-    public Ej4() {
+    public Ej04() {
 
         //Probando con un array de 5 elementos
         int[] arr = new int[5];
