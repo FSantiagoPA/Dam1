@@ -6,13 +6,15 @@ import java.util.Scanner;
 
 public class Ej1 {
 
-    public Scanner scanner = new Scanner(System.in);
+    // Escáner estático para evitar crear uno nuevo cada vez que necesitemos leer un número
+    private static final Scanner scanner = new Scanner(System.in);
 
     public Ej1 () {
         solicitarNumero();
     }
     public void solicitarNumero() {
 
+        //Creamos una array list
         ArrayList<Integer> num = new ArrayList<>();
 
         int numSoli = 1;
@@ -20,10 +22,12 @@ public class Ej1 {
             System.out.println("Introduce un numero: ");
             try {
                 numSoli = Integer.parseInt(scanner.nextLine());
-                num.add(numSoli);
+                if (numSoli >= 0)
+                    num.add(numSoli);
             } catch (NumberFormatException n) {
                 System.out.println("Introduce solo numeros por favor");
             }
         }
+        System.out.println("Numero almacenados: " + num);
     }
 }

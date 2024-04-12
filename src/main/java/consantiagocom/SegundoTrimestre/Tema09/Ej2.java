@@ -4,39 +4,41 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Ej2 {
-    public Ej2(){
 
-        Scanner lector = new Scanner(System.in);
-
+    // Escáner estático para evitar crear uno nuevo cada vez que necesitemos leer un número
+    private static final Scanner scanner = new Scanner(System.in);
+    public Ej2() {
+        soliNumbers();
+    }
+    public void soliNumbers() {
+        //creamos 2 contadores uno para los errores y otro para los numeros ingresados
         int countErrors = 0, countNumbers = 0;
-        double[] numbs = new double[10];
+        //iniciamos una array con un capacidad de 10
+        double[] numbers = new double[10];
 
-        do{
-            try{
-                System.out.println("Introduce un número: ");
-                numbs[countNumbers] = lector.nextDouble();
+        //hacemos un bucle para que se repita 10 veces
+        do {
+            try {
+                System.out.println("Enter a number");
+                numbers[countNumbers] = Double.parseDouble(scanner.nextLine());
                 countNumbers++;
-            } catch (InputMismatchException ime){
-                System.out.println("El numero introducido no es válido");
+            } catch (NumberFormatException n) {
+                System.out.println("Enter numbers only!!");
                 countErrors++;
-            } finally {
-                lector.nextLine();
             }
 
         } while (countNumbers < 10);
 
-        System.out.println("Has introducido " + countErrors + " errores");
-        System.out.println("Los números introducidos son: ");
-        for (double numb : numbs) {
-            System.out.println(numb);
-        }
-        double max = Integer.MIN_VALUE;
-        for (double numb : numbs) {
-            if (numb > max){
-                max = numb;
+        System.out.println("You have entered " + countErrors + " mistakes");
+
+        //Si hay números en Array, busca el más grande
+        double max = Double.MIN_VALUE;
+        for (double number : numbers) {
+            if (number > max) {
+                max = number;
             }
         }
-
-        System.out.println("El numero mas alto es " + max);
+        System.out.println("El numero mas grande es: " + max);
     }
 }
+
