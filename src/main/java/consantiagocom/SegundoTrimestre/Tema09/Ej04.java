@@ -49,7 +49,7 @@ public class Ej04 {
                 System.out.println("No has introducido un número entero");
                 lector.nextLine();
                 //Detectando si la array está llena
-            } catch (ArrayIndexOutOfBoundsException aioobe) {
+            } catch (ArrayIndexOutOfBoundsException a) {
                 System.out.println("Has introducido demasiados números");
                 System.out.println("Saliendo del bucle");
                 break;
