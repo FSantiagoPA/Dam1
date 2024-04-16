@@ -8,6 +8,7 @@ public class Ej08 {
             int a = 1 / 0;
         } catch (ArithmeticException e) {
             System.out.println("ArithmeticException");
+
         }
 
         // NullPointerException

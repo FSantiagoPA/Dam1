@@ -1,9 +1,11 @@
 package consantiagocom.SegundoTrimestre.Tema09;
 
 public class Ej07 {
+
     Ej07(){
+
         //Creamos un par de arrays de cadenas de caracteres y las inicializamos
-        // Rellenamos los array con cadenas de caracteres y cadenas nulas
+        //Rellenamos los array con cadenas de caracteres y cadenas nulas
         String[] array = {"Hola", "Adios", null, "Buenos días", "Buenas tardes", "Buenas noches"};
         String[] array2 = {"Hola", "Adios", "Buenos días", "Buenas tardes", "Buenas noches"};
         String[] array3 = {"Hola", "Adios", null, "Buenos días", "Buenas tardes", "Buenas noches", null};
