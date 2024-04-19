@@ -2,6 +2,8 @@ package consantiagocom.tercertrimestre.tema10.ejercicio02;
 
 public class Ej02 {
     public Ej02(){
+
+        //Create a list of 10 random numbers between 0 and 100
         ArrayListEstadisticas lista = new ArrayListEstadisticas();
 
         for (int i = 0; i < 10; i++) {

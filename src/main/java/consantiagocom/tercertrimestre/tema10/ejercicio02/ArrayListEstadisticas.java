@@ -8,16 +8,23 @@ import java.util.Objects;
 public class ArrayListEstadisticas extends ArrayList<Double> implements IEstadistica{
     private static final int DEFAULT_CAPACITY = 10;
 
+    //Constructor:
+    // Extiende la clase ArrayList e implementa la interfaz IEstadisticas
     public ArrayListEstadisticas() {
         this(DEFAULT_CAPACITY);
     }
 
     public ArrayListEstadisticas(int capacity){
-        super(capacity);
+        super();
     }
     public ArrayListEstadisticas(Collection<Double> collection){
         super(collection);
     }
+
+    /**
+     * Devuelve el valor mínimo de la lista.
+     * @return el valor mínimo de la lista
+     */
 
     @Override
     public double minimo() {
@@ -31,6 +38,11 @@ public class ArrayListEstadisticas extends ArrayList<Double> implements IEstadis
         return min;
     }
 
+    /**
+     * Devuelve el valor máximo de la lista.
+     * @return el valor máximo de la lista
+     */
+
     @Override
     public double maximo() {
         double max = Double.MIN_VALUE;
@@ -43,6 +55,11 @@ public class ArrayListEstadisticas extends ArrayList<Double> implements IEstadis
         return max;
     }
 
+    /**
+     * Devuelve la suma de todos los valores de la lista
+     * @return la suma de todos los valores de la lista
+     */
+
     @Override
     public double sumatorio() {
         double sum = 0;
@@ -52,10 +69,20 @@ public class ArrayListEstadisticas extends ArrayList<Double> implements IEstadis
         return sum;
     }
 
+    /**
+     * Devuelve el promedio de todos los valores de la lista
+     * @return el promedio de todos los valores de la lista
+     */
+
     @Override
     public double media() {
         return sumatorio() / size();
     }
+
+    /**
+     * Devuelve el valor más repetido de la lista
+     * @return el valor más repetido de la lista
+     */
 
     @Override
     public double moda() {
