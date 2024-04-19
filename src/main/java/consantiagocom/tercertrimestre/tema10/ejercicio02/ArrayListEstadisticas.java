@@ -25,7 +25,6 @@ public class ArrayListEstadisticas extends ArrayList<Double> implements IEstadis
      * Devuelve el valor mínimo de la lista.
      * @return el valor mínimo de la lista
      */
-
     @Override
     public double minimo() {
         double min = Double.MAX_VALUE;
@@ -42,7 +41,6 @@ public class ArrayListEstadisticas extends ArrayList<Double> implements IEstadis
      * Devuelve el valor máximo de la lista.
      * @return el valor máximo de la lista
      */
-
     @Override
     public double maximo() {
         double max = Double.MIN_VALUE;
@@ -59,7 +57,6 @@ public class ArrayListEstadisticas extends ArrayList<Double> implements IEstadis
      * Devuelve la suma de todos los valores de la lista
      * @return la suma de todos los valores de la lista
      */
-
     @Override
     public double sumatorio() {
         double sum = 0;
@@ -73,7 +70,6 @@ public class ArrayListEstadisticas extends ArrayList<Double> implements IEstadis
      * Devuelve el promedio de todos los valores de la lista
      * @return el promedio de todos los valores de la lista
      */
-
     @Override
     public double media() {
         return sumatorio() / size();
@@ -83,7 +79,6 @@ public class ArrayListEstadisticas extends ArrayList<Double> implements IEstadis
      * Devuelve el valor más repetido de la lista
      * @return el valor más repetido de la lista
      */
-
     @Override
     public double moda() {
         double moda = get(0);
@@ -95,6 +90,10 @@ public class ArrayListEstadisticas extends ArrayList<Double> implements IEstadis
                     contador2++;
                 }
             }
+            if (contador2 > contador){
+                contador = contador2;
+                moda = i;
+            }
         }
         return moda;
     }
@@ -102,7 +101,7 @@ public class ArrayListEstadisticas extends ArrayList<Double> implements IEstadis
     public String toString(){
         String str = "[";
         for (double i : this){
-            str += String.format("%.3f", i) + ", ";
+            str += String.format("%.2f", i) + ", ";
         }
         str = str.substring(0, str.length() - 2);
         str += "]";

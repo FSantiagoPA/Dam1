@@ -7,7 +7,7 @@ public class Ej02 {
         ArrayListEstadisticas lista = new ArrayListEstadisticas();
 
         for (int i = 0; i < 10; i++) {
-            lista.add(Math.random() * 100);
+            lista.add(Math.random() * 20);
         }
         //Print the list and the statistics
         System.out.println("Lista: " + lista);
