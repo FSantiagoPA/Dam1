@@ -12,7 +12,7 @@ public class Cola<E> implements ICola<E> {
 
     @Override
     public boolean add(E e) {
-        return cola.add((E)e);
+        return cola.add(e);
     }
 
     @Override
