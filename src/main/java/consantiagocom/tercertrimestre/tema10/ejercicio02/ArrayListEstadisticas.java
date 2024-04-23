@@ -1,9 +1,6 @@
 package consantiagocom.tercertrimestre.tema10.ejercicio02;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class ArrayListEstadisticas extends ArrayList<Double> implements IEstadistica{
     private static final int DEFAULT_CAPACITY = 10;
@@ -61,7 +58,7 @@ public class ArrayListEstadisticas extends ArrayList<Double> implements IEstadis
     public double sumatorio() {
         double sum = 0;
         for (int i = 0; i < size(); i++) {
-            sum += i;
+            sum += get(i);
         }
         return sum;
     }
@@ -79,24 +76,45 @@ public class ArrayListEstadisticas extends ArrayList<Double> implements IEstadis
      * Devuelve el valor más repetido de la lista
      * @return el valor más repetido de la lista
      */
-    @Override
+//    @Override
+//    public double moda() {
+//        double moda = get(0);
+//        int contador = 0;
+//        for(double i : this){
+//            int contador2 = 0;
+//            for (double j : this){
+//                if (i == j) {
+//                    contador2++;
+//                }
+//            }
+//            if (contador2 > contador){
+//                contador = contador2;
+//                moda = i;
+//            }
+//        }
+//        return moda;
+//    }
+
     public double moda() {
-        double moda = get(0);
-        int contador = 0;
-        for(double i : this){
-            int contador2 = 0;
-            for (double j : this){
-                if (i == j) {
-                    contador2++;
-                }
+        HashMap<Double,Integer> repeticiones = new HashMap<>();
+        int maxReps = 0;
+        double valorMasRepetido = get(0);
+        for (int i = 0; i <size(); i++) {
+            double numero = get(i);
+            int valor = 0;
+            Integer reps = repeticiones.get(numero);
+            if (reps != null)
+                valor = reps + 1;
+
+            if (maxReps < valor){
+                valorMasRepetido = numero;
+                maxReps = valor;
             }
-            if (contador2 > contador){
-                contador = contador2;
-                moda = i;
-            }
+            repeticiones.put(numero, valor);
         }
-        return moda;
+        return valorMasRepetido;
     }
+
     @Override
     public String toString(){
         String str = "[";

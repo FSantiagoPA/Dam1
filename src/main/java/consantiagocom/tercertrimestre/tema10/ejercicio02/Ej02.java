@@ -11,10 +11,10 @@ public class Ej02 {
         }
         //Print the list and the statistics
         System.out.println("Lista: " + lista);
-        System.out.printf("Minimo: %.3f\n", lista.minimo());
-        System.out.printf("Maximo: %.3f\n", lista.maximo());
-        System.out.printf("Sumatorio: %.3f\n", lista.sumatorio());
-        System.out.printf("Media: %.3f\n", lista.media());
-        System.out.printf("Moda: %.3f\n", lista.moda());
+        System.out.printf("Minimo: %.2f\n", lista.minimo());
+        System.out.printf("Maximo: %.2f\n", lista.maximo());
+        System.out.printf("Sumatorio: %.2f\n", lista.sumatorio());
+        System.out.printf("Media: %.2f\n", lista.media());
+        System.out.printf("Moda: %.2f\n", lista.moda());
     }
 }
