@@ -1,7 +1,7 @@
 package consantiagocom.SegundoTrimestre.Tema09;
 
 public class Ej08 {
-    Ej08(){
+    public Ej08(){
 
         // ArithmeticException
         try {

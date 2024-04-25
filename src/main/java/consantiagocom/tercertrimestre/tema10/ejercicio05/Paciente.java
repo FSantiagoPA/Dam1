@@ -7,7 +7,7 @@ public class Paciente {
 
     //Configurando variables constantes
     private static final String DEFAULT_GENDER  = "M";
-    static int localId = 0;
+    static int localId = 1;
 
     //Atributos
     private int id;
