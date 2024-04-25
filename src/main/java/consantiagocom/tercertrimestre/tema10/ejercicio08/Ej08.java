@@ -7,13 +7,13 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Ej08 {
+
     public MyDict dict;
 
     public Ej08() {
         dict = new MyDict();
         Scanner lector = new Scanner(System.in);
         int menu;
-        GameManager gameManager = new GameManager(dict, lector);
         dict.addWord("Hola", "Saludo en español");
         dict.addWord("Adiós", "Despedida en español");
         dict.addWord("Perro", "Animal doméstico que ladra");
@@ -69,14 +69,6 @@ public class Ej08 {
 
                 case 5:
                     System.out.println(dict);
-                    break;
-
-                case 6:
-                    gameManager.startGame();
-                    break;
-
-                case 7:
-                    System.out.println(gameManager.getBestScores());
                     break;
 
                 case 0:
