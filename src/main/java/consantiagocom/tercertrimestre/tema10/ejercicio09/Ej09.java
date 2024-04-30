@@ -1,4 +1,4 @@
-package consantiagocom.tercertrimestre.tema10.ejercicio08;
+package consantiagocom.tercertrimestre.tema10.ejercicio09;
 
 import consantiagocom.tercertrimestre.tema10.LibMethods;
 
@@ -6,29 +6,29 @@ import javax.management.openmbean.KeyAlreadyExistsException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
-public class Ej08 {
-
+public class Ej09 {
     public MyDict dict;
 
-    public Ej08() {
+    public  Ej09() {
         dict = new MyDict();
         Scanner lector = new Scanner(System.in);
         int menu;
+        GameManager gameManager = new GameManager(dict, lector);
         dict.addWord("Hola", "Saludo en español");
-        dict.addWord("Adiós", "Despedida en español");
+        dict.addWord("Adios", "Despedida en español");
         dict.addWord("Perro", "Animal doméstico que ladra");
         dict.addWord("Gato", "Animal doméstico que maúlla");
         dict.addWord("NIF","Numero de identifiacion familiar");
 
-        do {
+        do{
             menu();
             menu = LibMethods.scanInt();
             switch (menu) {
                 case 1:
                     System.out.println("Introduce la palabra");
-                    String word = lector.nextLine();
+                    String word = LibMethods.scanString();
                     System.out.println("Introduce la descripción");
-                    String description = lector.next();
+                    String description = LibMethods.scanString();
                     try {
                         dict.addWord(word, description);
                     } catch (KeyAlreadyExistsException e) {
@@ -72,6 +72,14 @@ public class Ej08 {
                     System.out.println(dict);
                     break;
 
+                case 6:
+                    gameManager.startGame();
+                    break;
+
+                case 7:
+                    System.out.println(gameManager.getBestScores());
+                    break;
+
                 case 0:
                     System.out.println("Saliendo...");
                     System.exit(0);
@@ -80,7 +88,7 @@ public class Ej08 {
                     System.out.println("Opción no válida");
                     break;
             }
-        }while (menu != 0);
+        }while (true);
     }
     public void menu(){
         System.out.println("Menu Principal");
@@ -90,6 +98,8 @@ public class Ej08 {
         System.out.println("3. Eliminar palabra");
         System.out.println("4. Consultar palabra");
         System.out.println("5. Mostrar diccionario");
+        System.out.println("6. Jugar");
+        System.out.println("7. Mejores puntuaciones");
         System.out.println("0. Salir de la aplicación.");
     }
 }
