@@ -5,7 +5,7 @@ import consantiagocom.tercertrimestre.tema10.ejercicio06.Ej06;
 import consantiagocom.tercertrimestre.tema10.ejercicio07.Ej07;
 import consantiagocom.tercertrimestre.tema10.ejercicio08.Ej08;
 import consantiagocom.tercertrimestre.tema10.ejercicio09.Ej09;
-import consantiagocom.tercertrimestre.tema10.ejercicio10.Ej10;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -18,6 +18,6 @@ public class Main {
         //Ej07 ej07 = new Ej07();
         //Ej08 ej08 = new Ej08();
         //Ej09 ej09 = new Ej09();
-        Ej10 ej10 = new Ej10();
+        //Ej10 ej10 = new Ej10();
     }
 }
