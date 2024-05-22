@@ -1,22 +1,17 @@
 package consantiagocom.PrimerTrimestre.Tema05Metodos;
 
-import java.util.Scanner;
+/*
+Escribe un método que acepte un número entero y calcule su factorial (n!).
+*/
 
 public class Ejercicio07 {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        int n1;
-
-        System.out.println("Ingrese un numero");
-        n1 = scanner.nextInt();
-
-        System.out.println(factorial(n1));
+    public Ejercicio07(){
+        System.out.println(factorial(5));
     }
-    public static int factorial(int n){
+    public static int factorial(int num){
         int resultado = 1;
-        for (int i = 1; i <= n; i++) {
-            resultado = resultado * i;
+        for (int i = num; i >= 1; i--){
+            resultado *= i;
         }
         return resultado;
     }
