@@ -5,7 +5,7 @@ import consantiagocom.SegundoTrimestre.Tema07Poo.lib.Input;
 import consantiagocom.SegundoTrimestre.Tema07Poo.lib.Menus;
 
 public class MainEjer06 {
-    private Tienda t = new Tienda();
+    private Shop t = new Shop();
     public MainEjer06(){
         boolean salir = false;
         do{

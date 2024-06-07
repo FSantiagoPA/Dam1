@@ -1,7 +1,7 @@
 package consantiagocom.tercertrimestre.tema11.ej04;
 
-import consantiagocom.tercertrimestre.tema11.ej04.Enums.Color;
-import consantiagocom.tercertrimestre.tema11.ej04.Enums.ConsumoEnergetico;
+import consantiagocom.tercertrimestre.tema11.ej04.enums.Color;
+import consantiagocom.tercertrimestre.tema11.ej04.enums.ConsumoEnergetico;
 
 public class Television extends Electrodomestico{
 
