@@ -1,7 +1,5 @@
 package consantiagocom.PrimerTrimestre.Tema05Metodos;
 
-import java.util.Scanner;
-
 /*
 Escribe un programa que mediante un método devuelva la suma de dos enteros.
 */
@@ -12,5 +10,8 @@ public class Ejercicio01 {
     }
     public static int suma(int num, int num2){
         return num + num2;
+    }
+
+    public static class Ejercicio16 {
     }
 }

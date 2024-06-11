@@ -1,6 +1,6 @@
 package consantiagocom.PrimerTrimestre.tema03bucles;
 
-/* Escribe un programa que calcule el factorial de un número. Ejemplo: 5! = 5 * 4 * 3 * 2 * 1 = 120 */
+/* Escribe un programa que calcule el factorial de un número. HashMap: 5! = 5 * 4 * 3 * 2 * 1 = 120 */
 
 
 public class Ejercicio08 {
